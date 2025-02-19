@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Sidebar from './Sidebar';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
+import Carousel from './components/Carousel';
 
-// Create placeholder pages
-const Home = () => <h2>Welcome to Mental Health Companion</h2>;
-const Dashboard = () => <h2>Dashboard</h2>;
-const About = () => <h2>About Us</h2>;
-const Contact = () => <h2>Contact Us</h2>;
+// Import pages from `pages/` folder
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -19,11 +21,23 @@ function App() {
         {/* Main Content Area */}
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            {/* Home Page - Shows Cards First, Then Carousel */}
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Home />
+                  <Carousel /> {/* Carousel appears below Home page cards */}
+                </div>
+              }
+            />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+
+          {/* Footer Component */}
+          <Footer />
         </div>
       </div>
     </Router>
