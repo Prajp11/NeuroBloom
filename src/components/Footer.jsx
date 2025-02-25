@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear(); // Dynamic Year
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="footer">
@@ -18,18 +20,19 @@ const Footer = () => {
         <div className="footer-center">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="/About">About Us</a></li>
-            <li><a href="/Contact Us">Contact Us</a></li>
-            <li><a href="/Privacy">Privacy Policy</a></li>
-            <li><a href="/Terms">Terms of Service</a></li>
+            <li><Link to="/about">About Us</Link></li>
+            {/* <li><Link to="/contact">Contact Us</Link></li> Linked Contact Page */}
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms of Service</Link></li>
           </ul>
         </div>
 
         {/* Right Section */}
         <div className="footer-right">
           <h4>Contact Us</h4>
-          <p>Email: mentalhealthsupport@gmail.com</p>
+          <p>Email: support@mentalwellness.com</p>
           <p>Phone: +91 7378570635</p>
+          <p><Link to="/contact" className="footer-contact-link">Get in Touch</Link></p> {/* Added Contact Us Link */}
         </div>
       </div>
 
