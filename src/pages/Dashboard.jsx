@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Dashboard() {
+const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Dashboard</h2>
+      <p className="dashboard-description">Welcome to your mental health dashboard.</p>
 
-export default Dashboard
+      <div className="dashboard-buttons">
+        {/* ✅ Button to go to Mood Tracker */}
+        <Link to="/mood-tracker">
+          <button className="dashboard-btn">📝 Mood Tracking</button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

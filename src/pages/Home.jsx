@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
@@ -36,6 +36,8 @@ const features = [
 ];
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="home-container">
       <h1>Welcome to Your Mental Health Companion</h1>
@@ -54,9 +56,24 @@ const Home = () => {
       </section>
 
       {/* Call-to-Action Button */}
-      <Link to="/login">
-        <button className="login-button">Login to Explore</button>
-      </Link>
+      <button className="login-button" onClick={() => setShowModal(true)}>
+        Login to Explore
+      </button>
+
+      {/* Modal for Login/Signup Options */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h2>Get Started</h2>
+            <p>Choose an option to proceed</p>
+            <div className="modal-buttons">
+              <Link to="/login" className="modal-btn login-btn">Login</Link>
+              <Link to="/signup" className="modal-btn signup-btn">Signup</Link>
+            </div>
+            <button className="close-btn" onClick={() => setShowModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
