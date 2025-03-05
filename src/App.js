@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
 import MoodTracker from "./components/MoodTracker";
+import Chatbot from "./components/Chatbot";  // ✅ Import Chatbot
 import { refreshToken } from "./auth";  // ✅ Import token refresh function
 
 // Import pages
@@ -42,28 +43,29 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Sidebar stays the same */}
+        {/* ✅ Sidebar remains visible for easy navigation */}
         <Sidebar />
 
-        {/* Main Content Area */}
+        {/* ✅ Main Content Area */}
         <div className="main-content">
           <Routes>
-            {/* Public Routes */}
+            {/* ✅ Public Routes (Accessible without login) */}
             <Route path="/" element={<><Home /><Carousel /></>} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
 
-            {/* ✅ Protected Routes */}
+            {/* ✅ Protected Routes (Require authentication) */}
             <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
             <Route path="/mood-tracker" element={isLoggedIn ? <MoodTracker /> : <Navigate to="/login" />} />
+            <Route path="/chat" element={isLoggedIn ? <Chatbot /> : <Navigate to="/login" />} /> {/* ✅ AI Chatbot */}
 
-            {/* Redirect unknown routes to Home */}
+            {/* ✅ Redirect unknown routes to Home */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
-          {/* Footer Component */}
+          {/* ✅ Footer remains constant */}
           <Footer />
         </div>
       </div>

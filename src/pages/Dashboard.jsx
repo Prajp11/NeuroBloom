@@ -12,6 +12,11 @@ const Dashboard = () => {
         <Link to="/mood-tracker">
           <button className="dashboard-btn">📝 Mood Tracking</button>
         </Link>
+
+        {/* ✅ Button to go to AI Chatbot */}
+        <Link to="/chat">
+          <button className="dashboard-btn">🤖 AI Chatbot</button>
+        </Link>
       </div>
     </div>
   );
