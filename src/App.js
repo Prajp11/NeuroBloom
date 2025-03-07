@@ -5,8 +5,9 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
 import MoodTracker from "./components/MoodTracker";
-import Chatbot from "./components/Chatbot";  // ✅ Import Chatbot
-import { refreshToken } from "./auth";  // ✅ Import token refresh function
+import Chatbot from "./components/Chatbot";  
+import TherapyBooking from "./pages/TherapyBooking";  // ✅ Import Therapy Booking Page
+import { refreshToken } from "./auth";  
 
 // Import pages
 import Home from "./pages/Home";
@@ -59,7 +60,8 @@ function App() {
             {/* ✅ Protected Routes (Require authentication) */}
             <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
             <Route path="/mood-tracker" element={isLoggedIn ? <MoodTracker /> : <Navigate to="/login" />} />
-            <Route path="/chat" element={isLoggedIn ? <Chatbot /> : <Navigate to="/login" />} /> {/* ✅ AI Chatbot */}
+            <Route path="/chat" element={isLoggedIn ? <Chatbot /> : <Navigate to="/login" />} /> 
+            <Route path="/therapy-booking" element={isLoggedIn ? <TherapyBooking /> : <Navigate to="/login" />} /> {/* ✅ Therapy Booking */}
 
             {/* ✅ Redirect unknown routes to Home */}
             <Route path="*" element={<Navigate to="/" />} />
