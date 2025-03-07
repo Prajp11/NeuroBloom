@@ -227,18 +227,24 @@ const MoodTracker = () => {
 
           {showQuestions && selectedMood && (
             <div className="question-section">
-              {moodQuestions[selectedMood]?.map(({ id, question, options }) => (
-                <div key={id} className="question-box">
-                  <h4>{question}</h4>
-                  {options.map((option) => (
-                    <button key={option} onClick={() => handleResponse(id, option)}>
-                      {option}
-                    </button>
-                  ))}
-                </div>
-              ))}
-              <button onClick={calculateStressScore}>Submit Answers</button>
-            </div>
+            <h3>Answer a few questions about your mood</h3>
+            {moodQuestions[selectedMood]?.map(({ id, question, options }) => (
+              <div key={id} className="question-box">
+                <h4>{question}</h4>
+                {options.map((option) => (
+                  <button
+                    key={option}
+                    className={`option-btn ${responses[id] === option ? "selected" : ""}`}
+                    onClick={() => handleResponse(id, option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <button className="submit-btn" onClick={calculateStressScore}>Submit Answers</button>
+          </div>
+          
           )}
 
           {showResults && (

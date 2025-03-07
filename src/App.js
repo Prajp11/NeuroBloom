@@ -5,9 +5,10 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
 import MoodTracker from "./components/MoodTracker";
-import Chatbot from "./components/Chatbot";  
-import TherapyBooking from "./pages/TherapyBooking";  // ✅ Import Therapy Booking Page
-import { refreshToken } from "./auth";  
+import Chatbot from "./components/Chatbot";
+import TherapyBooking from "./pages/TherapyBooking";
+import StressRelief from "./components/StressRelief/StressRelief";
+import { refreshToken } from "./auth";
 
 // Import pages
 import Home from "./pages/Home";
@@ -16,6 +17,14 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+
+// ✅ Import Stress Relief Activities
+import Games from "./components/StressRelief/Games/Games";
+import BreathingExercise from "./components/StressRelief/Games/BreathingExercise";
+import MemoryMatch from "./components/StressRelief/Games/MemoryMatch";
+import BubblePop from "./components/StressRelief/Games/BubblePop";
+import MentalHealthEducation from "./components/StressRelief/Education/MentalHealthEducation";
+import CBTExercises from "./components/StressRelief/CBT/CBTExercises";
 
 // ✅ Function to check authentication properly
 const isAuthenticated = () => {
@@ -60,8 +69,17 @@ function App() {
             {/* ✅ Protected Routes (Require authentication) */}
             <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />} />
             <Route path="/mood-tracker" element={isLoggedIn ? <MoodTracker /> : <Navigate to="/login" />} />
-            <Route path="/chat" element={isLoggedIn ? <Chatbot /> : <Navigate to="/login" />} /> 
-            <Route path="/therapy-booking" element={isLoggedIn ? <TherapyBooking /> : <Navigate to="/login" />} /> {/* ✅ Therapy Booking */}
+            <Route path="/chat" element={isLoggedIn ? <Chatbot /> : <Navigate to="/login" />} />
+            <Route path="/therapy-booking" element={isLoggedIn ? <TherapyBooking /> : <Navigate to="/login" />} />
+
+            {/* ✅ Stress Relief Routes */}
+            <Route path="/stress-relief" element={<StressRelief />} />
+            <Route path="/stress-relief/games" element={<Games />} />
+            <Route path="/stress-relief/games/breathing" element={<BreathingExercise />} />
+            <Route path="/stress-relief/games/memory" element={<MemoryMatch />} />
+            <Route path="/stress-relief/games/bubblepop" element={<BubblePop />} />
+            <Route path="/stress-relief/education" element={<MentalHealthEducation />} />
+            <Route path="/stress-relief/cbt" element={<CBTExercises />} />
 
             {/* ✅ Redirect unknown routes to Home */}
             <Route path="*" element={<Navigate to="/" />} />
