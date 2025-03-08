@@ -8,8 +8,9 @@ const Games = () => {
       <p>Engage in fun activities to relax your mind.</p>
 
       <div className="games-list">
-        <Link to="/stress-relief/games/breathing">
-          <button className="game-btn">🌬️ Breathing Exercise</button>
+        {/* Corrected the Link path for Balloon Pop Game */}
+        <Link to="/stress-relief/games/balloonpop">
+          <button className="game-btn">🎈 Balloon Pop</button>
         </Link>
         <Link to="/stress-relief/games/memory">
           <button className="game-btn">🧠 Memory Match</button>
