@@ -8,7 +8,6 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
   const chatBoxRef = useRef(null);
 
-  // ✅ Scroll to latest message automatically
   useEffect(() => {
     chatBoxRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -17,13 +16,9 @@ const Chatbot = () => {
     if (!message.trim()) return;
 
     const token = localStorage.getItem("accessToken");
-    if (!token) {
-      setMessages([...messages, { sender: "AI", text: "⚠️ Please log in to chat." }]);
-      return;
-    }
-
     const userMessage = { sender: "You", text: message };
-    setMessages([...messages, userMessage]);
+
+    setMessages((prev) => [...prev, userMessage]);
     setMessage("");
     setLoading(true);
 
@@ -33,53 +28,64 @@ const Chatbot = () => {
         { message },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
             "Content-Type": "application/json",
           },
         }
       );
 
-      console.log("Chatbot API Response:", res.data); // ✅ Debugging
-
       const aiMessage = {
         sender: "AI",
-        text: res.data.response || "🤖 Hmm... I'm not sure. Could you ask differently?",
+        text:
+          res.data?.response ||
+          "🤖 Hmm... I'm not sure I understand. Could you rephrase that?",
       };
-      setMessages((prevMessages) => [...prevMessages, aiMessage]);
+
+      setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
-      console.error("Chatbot Error:", error.response || error);
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: "AI", text: "⚠️ Sorry, something went wrong." },
+      console.error("Chatbot Error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "AI",
+          text: "⚠️ Something went wrong. Please try again later.",
+        },
       ]);
     }
 
     setLoading(false);
   };
 
+  // ✅ Enter key support
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
   return (
     <div className="chat-container">
       <h2>🧠 AI Chatbot</h2>
 
-      {/* ✅ Chat Display */}
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div key={index} className={`chat-message ${msg.sender === "You" ? "user" : "ai"}`}>
             <strong>{msg.sender}:</strong> {msg.text}
           </div>
         ))}
-        <div ref={chatBoxRef} /> {/* ✅ Auto-scroll anchor */}
+        <div ref={chatBoxRef} />
       </div>
 
-      {/* ✅ Chat Input */}
       <textarea
         placeholder="Type your message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleKeyDown}
         disabled={loading}
       />
 
-      <button onClick={sendMessage} disabled={loading}>
+      <button onClick={sendMessage} disabled={loading || !message.trim()}>
         {loading ? "Thinking..." : "Send"}
       </button>
     </div>

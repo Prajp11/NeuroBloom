@@ -18,15 +18,16 @@ const Dashboard = () => {
           <button className="dashboard-btn">🤖 AI Chatbot</button>
         </Link>
 
-        {/* ✅ Button to go to Therapy Booking */}
-        <Link to="/therapy-booking">
-          <button className="dashboard-btn">💆 Therapy Booking</button>
-        </Link>
-
         {/* ✅ Button to go to Stress Relief Activities */}
         <Link to="/stress-relief">
           <button className="dashboard-btn">🎮 Stress Relief Activities</button>
         </Link>
+
+        {/* ✅ Button to go to Therapy Booking */}
+        <Link to="/therapy-booking">
+          <button className="dashboard-btn">💆 Therapy Booking</button>
+        </Link>
+        
       </div>
     </div>
   );
