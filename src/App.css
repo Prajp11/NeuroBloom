@@ -517,14 +517,14 @@
 }
 
 
-/* ✅ Mood Tracker Styling */
+/*  Mood Tracker Styling */
 .mood-container {
   text-align: center;
   padding: 20px;
   font-family: "Arial", sans-serif;
 }
 
-/* ✅ Mood Selection */
+/*  Mood Selection */
 .mood-selection {
   display: flex;
   justify-content: center;
@@ -546,14 +546,14 @@
   transform: scale(1.1);
 }
 
-/* ✅ Mood Button Selected */
+/*  Mood Button Selected */
 .mood-btn.selected {
   background: #ffcc80; /* Light orange */
   border-radius: 10px;
   transform: scale(1.05);
 }
 
-/* ✅ Mood Log Input */
+/*  Mood Log Input */
 textarea {
   width: 80%;
   height: 60px;
@@ -565,7 +565,7 @@ textarea {
   resize: none;
 }
 
-/* ✅ Submit Button */
+/* Submit Button */
 .submit-btn {
   padding: 12px 20px;
   font-size: 1rem;
@@ -582,14 +582,14 @@ textarea {
   background-color: #45a049;
 }
 
-/* ✅ Status Message */
+/*  Status Message */
 .status-message {
   font-size: 1.1rem;
   color: #ff4500;
   margin-top: 10px;
 }
 
-/* ✅ Mood History */
+/* Mood History */
 .mood-history {
   list-style-type: none;
   padding: 0;
@@ -608,7 +608,7 @@ textarea {
   color: #2c3e50;
 }
 
-/* ✅ Question Section */
+/* Question Section */
 .question-section {
   margin-top: 30px;
   padding: 20px;
@@ -617,7 +617,7 @@ textarea {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Question Box */
+/* Question Box */
 .question-box {
   margin-bottom: 15px;
   text-align: left;
@@ -627,7 +627,7 @@ textarea {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Options Styling */
+/* Options Styling */
 .option-btn {
   display: block;
   width: 100%;
@@ -657,7 +657,7 @@ textarea {
 }
 
 
-/* ✅ Primary Questions Section */
+/* Primary Questions Section */
 .primary-section {
   margin-top: 30px;
   padding: 20px;
@@ -666,7 +666,7 @@ textarea {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Primary Question Box */
+/* Primary Question Box */
 .primary-question-box {
   margin-bottom: 15px;
   text-align: left;
@@ -676,7 +676,7 @@ textarea {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* ✅ Primary Option Buttons */
+/* Primary Option Buttons */
 .primary-option-btn {
   display: block;
   width: 100%;
@@ -692,13 +692,13 @@ textarea {
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, color 0.3s;
 }
 
-/* ✅ Hover Effect for Primary Options */
+/* Hover Effect for Primary Options */
 .primary-option-btn:hover {
   background: #d6d6d6;
   transform: scale(1.02);
 }
 
-/* ✅ Selected State for Primary Options */
+/* Selected State for Primary Options */
 .primary-option-btn.selected {
   background: #007bff; /* Blue */
   color: white;
@@ -707,7 +707,7 @@ textarea {
   transform: none;
 }
 
-/* ✅ Continue Button */
+/* Continue Button */
 .continue-btn {
   background: #28a745;
   color: white;
@@ -724,7 +724,7 @@ textarea {
   background: #218838;
 }
 
-/* ✅ Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .mood-selection {
     flex-direction: column;
@@ -865,7 +865,7 @@ textarea {
 }
 
 
-/* ✅ Chatbot Container */
+/* Chatbot Container */
 .chat-container {
   max-width: 500px;
   margin: 20px auto;
@@ -876,7 +876,7 @@ textarea {
   text-align: center;
 }
 
-/* ✅ Chat Display Box */
+/*  Chat Display Box */
 .chat-box {
   height: 300px;
   overflow-y: auto;
@@ -887,7 +887,7 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* ✅ Individual Messages */
+/* Individual Messages */
 .chat-message {
   padding: 10px 14px;
   margin: 6px 0;
@@ -899,7 +899,7 @@ textarea {
   word-wrap: break-word;
 }
 
-/* ✅ User Message */
+/* User Message */
 .chat-message.user {
   background-color: #007bff;
   color: white;
@@ -908,7 +908,7 @@ textarea {
   text-align: right;
 }
 
-/* ✅ AI Message */
+/* AI Message */
 .chat-message.ai {
   background-color: #f1f1f1;
   color: #333;
@@ -917,7 +917,7 @@ textarea {
   text-align: left;
 }
 
-/* ✅ Text Input */
+/* Text Input */
 textarea {
   width: 100%;
   height: 50px;
@@ -928,7 +928,7 @@ textarea {
   resize: none;
 }
 
-/* ✅ Send Button */
+/* Send Button */
 button {
   width: 100%;
   padding: 12px;
@@ -1199,28 +1199,28 @@ input[type="date"] {
 }
 
 
-/* ✅ General Game Section Styling */
+/*  General Game Section Styling */
 .game-container {
   text-align: center;
   padding: 20px;
   font-family: "Arial", sans-serif;
 }
 
-/* ✅ Game Titles */
+/* Game Titles */
 .game-container h2 {
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 10px;
 }
 
-/* ✅ Game Instructions */
+/*  Game Instructions */
 .game-instructions {
   font-size: 1.2rem;
   color: #555;
   margin-bottom: 20px;
 }
 
-/* ✅ Game Buttons */
+/*  Game Buttons */
 .game-btn {
   padding: 12px 20px;
   font-size: 1.2rem;
@@ -1238,7 +1238,7 @@ input[type="date"] {
   transform: scale(1.05);
 }
 
-/* ✅ Game Box (Used in Memory Match & Bubble Pop) */
+/*  Game Box (Used in Memory Match & Bubble Pop) */
 .game-info {
   display: flex;
   justify-content: space-between;
@@ -1301,42 +1301,56 @@ input[type="date"] {
 }
 
 
-/* ✅ Bubble Pop (Bubble Styling) */
+/* Game Container */
 .game-container {
   text-align: center;
   padding: 20px;
 }
 
+/* Bubbles Grid */
 .bubble-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  gap: 15px;
   justify-items: center;
   margin-bottom: 20px;
 }
 
+/* Single Bubble */
 .bubble {
-  font-size: 2em;
-  background-color: transparent;
-  border: none;
+  font-size: 2rem;
+  padding: 15px;
+  margin: 10px;
+  background: lightblue;
+  border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  border: none;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .bubble:hover {
-  transform: scale(1.2); /* Slight zoom effect on hover */
+  transform: scale(1.1);
 }
 
+/* Popped bubble and lock when answering */
+.bubble:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Game Info */
 .game-info {
   font-size: 1.2em;
   margin-top: 20px;
 }
 
+/* Game Over */
 .game-over {
   font-size: 1.5em;
   color: #ff6347;
 }
 
+/* Main Action Button */
 .game-btn {
   margin-top: 20px;
   padding: 10px 20px;
@@ -1345,26 +1359,77 @@ input[type="date"] {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.game-btn:hover {
+  background-color: #45a049;
 }
 
 .game-btn:disabled {
   background-color: #ccc;
 }
 
-/* Animations for popped bubbles */
-.bubble:active {
-  transform: scale(0.9);
-}
-
-/* ✅ Game Result Messages */
-.result-message {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #27ae60;
+/* Submit Button for Question */
+.submit-btn {
   margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* ✅ Balloon Pop Game Styling */
+.submit-btn:hover {
+  background-color: #1f6391;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Question Section */
+.trivia-question {
+  margin-top: 20px;
+  font-size: 1.3rem;
+}
+
+.trivia-question input {
+  padding: 8px;
+  margin-top: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Answer Feedback */
+.correct-answer {
+  color: green;
+  font-weight: bold;
+  animation: pop-animation 0.5s ease-out;
+  margin-top: 10px;
+}
+
+.incorrect-answer {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Bubble Pop Animation */
+@keyframes pop-animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+
+/* Balloon Pop Game Styling */
 .balloon-pop-game {
   position: relative;
   height: 300px;
@@ -1426,7 +1491,7 @@ input[type="date"] {
   margin-top: 20px; /* Ensures gap between game buttons */
 }
 
-/* ✅ Responsive Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .game-container {
     padding: 10px; /* Reduced padding on smaller screens */
