@@ -115,57 +115,78 @@ const solutionMapping = {
   }
 };
 
-// ✅ Solution Component
-// ✅ Function to Calculate Stress Score
-const calculateStressScore = (mood, responses) => {
-    let score = 0;
-  
-    Object.values(responses).forEach((answer) => {
-      if (["⏳ Today", "✅ Yes, too much to handle", "😣 Frequently", "📅 Few weeks"].includes(answer)) {
-        score += 1; // Low impact
-      } else if (["⚠️ Ongoing issue", "🚑 Only in extreme stress", "🆘 Very bad"].includes(answer)) {
-        score += 3; // High impact
-      } else {
-        score += 2; // Moderate impact
-      }
-    });
-  
-    if (mood === "stressed" && score >= 8) return "severe";
-    if (score >= 4) return "moderate";
+
+// ✅ Stress Weights Mapping
+const stressWeights = {
+  "😀 Rarely": 0,
+  "🙂 Sometimes": 0,
+  "☀️ Occasionally": 0,
+  "⏳ Today": 0,
+  "😣 Frequently": 2,
+  "📅 Few weeks": 2,
+  "✅ Yes, too much to handle": 3,
+  "⚠️ Ongoing issue": 4,
+  "🚑 Only in extreme stress": 3,
+  "🆘 Very bad": 5
+};
+
+// ✅ Updated Function to Calculate Stress Level More Clearly
+// ✅ Function to Calculate Only Score
+const calculateStressScore = (responses) => {
+  let score = 0;
+
+  Object.values(responses).forEach((answer) => {
+    if (stressWeights.hasOwnProperty(answer)) {
+      score += stressWeights[answer];
+    }
+  });
+
+  return score;
+};
+
+// ✅ Separate Function to Calculate Stress Level from Score
+const calculateStressLevel = (score) => {
+  if (score >= 8) {
+    return "severe";
+  } else if (score >= 3) {
+    return "moderate";
+  } else {
     return "mild";
-  };
-  
-  // ✅ Solution Component
-  const SolutionRecommendations = ({ mood, responses }) => {
-    if (!mood || !responses || Object.keys(responses).length === 0) return null;
-  
-    const stressLevel = calculateStressScore(mood, responses);
-  
-    return (
-      <div className="solution-section">
-        <h3>Recommended Solutions:</h3>
-  
-        {stressLevel === "severe" ? (
-          <>
-            <p className="solution-text">🚨 Your stress level is **high**. We recommend professional therapy.</p>
-            <Link to="/therapy-booking">
-              <button className="therapy-btn">Book a Therapy Session</button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <p className="solution-text">✔️ Your stress is at a manageable level. Here are some recommended steps to feel better.</p>
-            {Object.values(responses)
-              .flatMap((answer) => solutionMapping[mood]?.[answer] || [])
-              .sort(() => 0.5 - Math.random())
-              .slice(0, 4)
-              .map((solution, index) => (
-                <p key={index} className="solution-text">🔹 {solution}</p>
-              ))}
-          </>
-        )}
-      </div>
-    );
-  };
-  
-  export default SolutionRecommendations;
+  }
+};
+
+// ✅ Solution Component
+const SolutionRecommendations = ({ mood, responses }) => {
+  if (!mood || !responses || Object.keys(responses).length === 0) return null;
+
+  const score = calculateStressScore(responses); // First, get numeric score
+  const stressLevel = calculateStressLevel(score); // Then get level mild/moderate/severe
+
+  return (
+    <div className="solution-section">
+      <h3>Recommended Solutions:</h3>
+
+      {stressLevel === "severe" ? (
+        <>
+          <p className="solution-text">🚨 Your stress level is high. We recommend professional therapy.</p>
+          <Link to="/therapy-booking">
+            <button className="therapy-btn">Book a Therapy Session</button>
+          </Link>
+        </>
+      ) : (
+        <>
+          <p className="solution-text">✔️ Your stress is at a manageable level. Here are some recommended steps to feel better.</p>
+          {Object.values(responses)
+            .flatMap((answer) => solutionMapping[mood]?.[answer] || [])
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4)
+            .map((solution, index) => (
+              <p key={index} className="solution-text">🔹 {solution}</p>
+            ))}
+        </>
+      )}
+    </div>
+  );
+};
+
+export default SolutionRecommendations;

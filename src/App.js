@@ -122,9 +122,12 @@ import Signup from "./pages/Signup";
 import Games from "./components/StressRelief/Games/Games";
 import MemoryMatch from "./components/StressRelief/Games/MemoryMatch";
 import BubblePop from "./components/StressRelief/Games/BubblePop";
+import DoodleCanvas from "./components/StressRelief/Games/DoodleCanvas";
 import BalloonPopGame from "./components/StressRelief/Games/BalloonPopGame";
+import WordFlowPuzzle from "./components/StressRelief/Games/Wordflow";
 import MentalHealthEducation from "./components/StressRelief/Education/MentalHealthEducation";
 import CBTExercises from "./components/StressRelief/CBT/CBTExercises";
+import WordScrambleGame from "./components/StressRelief/Games/Wordscramble";
 
 function App() {
   return (
@@ -154,6 +157,9 @@ function App() {
             <Route path="/stress-relief/games" element={<Games />} />
             <Route path="/stress-relief/games/memory" element={<MemoryMatch />} />
             <Route path="/stress-relief/games/bubblepop" element={<BubblePop />} />
+            <Route path="/stress-relief/games/wordflowpuzzle" element={<WordFlowPuzzle />} />
+            <Route path="/stress-relief/games/wordscramble" element={<WordScrambleGame />} />
+            <Route path="/stress-relief/games/doodlecanvas" element={<DoodleCanvas />} />
             <Route path="/stress-relief/games/balloonpop" element={<BalloonPopGame />} />
             <Route path="/stress-relief/education" element={<MentalHealthEducation />} />
             <Route path="/stress-relief/cbt" element={<CBTExercises />} />

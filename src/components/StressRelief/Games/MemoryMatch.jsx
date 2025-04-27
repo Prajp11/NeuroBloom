@@ -1,95 +1,129 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const cards = ["🍎", "🍌", "🍒", "🍇", "🍎", "🍌", "🍒", "🍇"];
+// Emoji symbol pairs for the cards
+const symbolPool = [
+  "🍎", "🍎", "🐶", "🐶", 
+  "🚗", "🚗", "🌈", "🌈",
+  "🎈", "🎈", "🎵", "🎵", 
+  "🎲", "🎲", "🎯", "🎯"
+];
 
-const shuffleCards = () => {
-  return [...cards].sort(() => Math.random() - 0.5);
+// Shuffle function
+const shuffleSymbols = () => {
+  return [...symbolPool].sort(() => Math.random() - 0.5);
 };
 
-const MemoryMatch = () => {
-  const [shuffledCards, setShuffledCards] = useState(shuffleCards());
-  const [selectedCards, setSelectedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
+const MemoryMatchGame = () => {
+  const [cards, setCards] = useState(
+    shuffleSymbols().map((symbol, index) => ({
+      id: index,
+      symbol,
+      isFlipped: false,
+      isMatched: false
+    }))
+  );
+  const [flippedCards, setFlippedCards] = useState([]);
   const [score, setScore] = useState(0);
-  const [timer, setTimer] = useState(30);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
-  // Timer logic
-  useEffect(() => {
-    if (timer > 0 && !isGameOver) {
-      const countdown = setInterval(() => {
-        setTimer((prev) => prev - 1);
-      }, 1000);
-      return () => clearInterval(countdown); // Cleanup interval on component unmount
-    } else if (timer === 0) {
-      setIsGameOver(true);
-    }
-  }, [timer, isGameOver]);
+  const handleCardClick = (id) => {
+    if (flippedCards.length < 2 && !cards[id].isFlipped && !cards[id].isMatched) {
+      const updatedCards = [...cards];
+      updatedCards[id].isFlipped = true;
+      setCards(updatedCards);
 
-  // Handle card click
-  const handleCardClick = (index) => {
-    if (selectedCards.length === 1 && selectedCards[0] !== index) {
-      if (shuffledCards[selectedCards[0]] === shuffledCards[index]) {
-        setMatchedCards([...matchedCards, shuffledCards[selectedCards[0]]]);
-        setScore(score + 10); // Add score for correct match
+      const newFlipped = [...flippedCards, id];
+      setFlippedCards(newFlipped);
+
+      if (newFlipped.length === 2) {
+        const [firstId, secondId] = newFlipped;
+        if (cards[firstId].symbol === cards[secondId].symbol) {
+          updatedCards[firstId].isMatched = true;
+          updatedCards[secondId].isMatched = true;
+          setCards(updatedCards);
+          setScore((prev) => prev + 1);
+          setFlippedCards([]);
+        } else {
+          setTimeout(() => {
+            updatedCards[firstId].isFlipped = false;
+            updatedCards[secondId].isFlipped = false;
+            setCards(updatedCards);
+            setFlippedCards([]);
+          }, 800);
+        }
       }
-      setTimeout(() => setSelectedCards([]), 1000);
-    } else {
-      setSelectedCards([index]);
     }
   };
 
-  // Restart the game
   const restartGame = () => {
-    setShuffledCards(shuffleCards());
-    setSelectedCards([]);
-    setMatchedCards([]);
+    setCards(
+      shuffleSymbols().map((symbol, index) => ({
+        id: index,
+        symbol,
+        isFlipped: false,
+        isMatched: false
+      }))
+    );
+    setFlippedCards([]);
     setScore(0);
-    setTimer(30);
-    setIsGameOver(false);
+    setGameOver(false);
   };
+
+  if (score === 8 && !gameOver) {
+    setGameOver(true);
+  }
 
   return (
-    <div className="game-container">
-      <h2>🧠 Memory Match</h2>
-      <p>Match the identical pairs before time runs out!</p>
+    <div style={{ textAlign: "center", padding: 20 }}>
+      <h2 style={{ color: "#4D96FF" }}>🧠 Memory Match Game</h2>
+      <p>Score: {score}/8</p>
+      {gameOver && (
+        <h3 style={{ color: "#4CAF50" }}>
+          🎉 Well Done! You've matched all the symbols!
+        </h3>
+      )}
 
-      {/* Timer and Score Display */}
-      <div className="game-info">
-        <p>Time Left: {timer} seconds</p>
-        <p>Score: {score}</p>
-      </div>
-
-      {/* Display Grid */}
-      <div className="grid">
-        {shuffledCards.map((card, index) => (
-          <button
-            key={index}
-            className={`card ${selectedCards.includes(index) || matchedCards.includes(card) ? "flipped" : ""}`}
-            onClick={() => handleCardClick(index)}
-            disabled={selectedCards.length === 1 && selectedCards[0] === index}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 80px)", gap: "10px", justifyContent: "center" }}>
+        {cards.map((card) => (
+          <div
+            key={card.id}
+            style={{
+              width: "80px",
+              height: "80px",
+              backgroundColor: card.isFlipped || card.isMatched ? "#fff" : "#e0e0e0",
+              border: "2px solid #4D96FF",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: "32px",
+              cursor: "pointer",
+              borderRadius: "10px",
+              transition: "all 0.3s ease"
+            }}
+            onClick={() => handleCardClick(card.id)}
           >
-            {selectedCards.includes(index) || matchedCards.includes(card) ? card : "❓"}
-          </button>
+            {card.isFlipped || card.isMatched ? card.symbol : "❓"}
+          </div>
         ))}
       </div>
 
-      {/* Game Over Screen */}
-      {isGameOver && (
-        <div className="game-over">
-          <h3>Game Over!</h3>
-          <p>Your final score: {score}</p>
-          <button onClick={restartGame} className="game-btn">Play Again</button>
-        </div>
-      )}
-
-      {/* Back Button */}
-      <Link to="/stress-relief/games">
-        <button className="game-btn">Back</button>
-      </Link>
+      <button
+        onClick={restartGame}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#FF4747",
+          color: "#fff",
+          borderRadius: "5px",
+          border: "none",
+          cursor: "pointer",
+          marginTop: "20px",
+          fontSize: "16px"
+        }}
+      >
+        🔁 Restart Game
+      </button>
     </div>
   );
 };
 
-export default MemoryMatch;
+export default MemoryMatchGame;
