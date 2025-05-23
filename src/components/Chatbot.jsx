@@ -105,7 +105,7 @@ const Chatbot = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [lastBotResponse, setLastBotResponse] = useState(""); // stores last AI response
+  const [lastBotResponse, setLastBotResponse] = useState(""); // ✅ stores last AI response
   const chatBoxRef = useRef(null);
 
   useEffect(() => {
@@ -141,12 +141,12 @@ const Chatbot = () => {
       const aiMessage = { sender: "AI", text: botReply };
 
       setMessages((prev) => [...prev, aiMessage]);
-      setLastBotResponse(botReply); // save last AI message
+      setLastBotResponse(botReply); // ✅ save last AI message
     } catch (error) {
       console.error("Chatbot Error:", error);
       const errorMsg = "⚠️ Something went wrong. Please try again later.";
       setMessages((prev) => [...prev, { sender: "AI", text: errorMsg }]);
-      setLastBotResponse(errorMsg); // also update lastBotResponse for consistency
+      setLastBotResponse(errorMsg); // ✅ also update lastBotResponse for consistency
     }
 
     setLoading(false);
@@ -157,9 +157,9 @@ const Chatbot = () => {
       e.preventDefault();
       sendMessage();
     }
-  }
+  };
 
-  // 🎤 Handle voice input
+  // 🎤 Voice input
   const handleVoiceInput = () => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
