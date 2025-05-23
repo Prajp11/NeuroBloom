@@ -105,6 +105,7 @@ const Chatbot = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [lastBotResponse, setLastBotResponse] = useState(""); // stores last AI response
   const chatBoxRef = useRef(null);
 
   useEffect(() => {
@@ -140,16 +141,12 @@ const Chatbot = () => {
       const aiMessage = { sender: "AI", text: botReply };
 
       setMessages((prev) => [...prev, aiMessage]);
-
-      // Speak the response
-      const utterance = new SpeechSynthesisUtterance(botReply);
-      speechSynthesis.speak(utterance);
+      setLastBotResponse(botReply); // save last AI message
     } catch (error) {
       console.error("Chatbot Error:", error);
-      setMessages((prev) => [
-        ...prev,
-        { sender: "AI", text: "⚠️ Something went wrong. Please try again later." },
-      ]);
+      const errorMsg = "⚠️ Something went wrong. Please try again later.";
+      setMessages((prev) => [...prev, { sender: "AI", text: errorMsg }]);
+      setLastBotResponse(errorMsg); // also update lastBotResponse for consistency
     }
 
     setLoading(false);
@@ -160,7 +157,7 @@ const Chatbot = () => {
       e.preventDefault();
       sendMessage();
     }
-  };
+  }
 
   // 🎤 Handle voice input
   const handleVoiceInput = () => {
@@ -193,6 +190,14 @@ const Chatbot = () => {
     };
   };
 
+  // 🔊 Read last bot response aloud
+  const handleReadAloud = () => {
+    if (lastBotResponse) {
+      const utterance = new SpeechSynthesisUtterance(lastBotResponse);
+      speechSynthesis.speak(utterance);
+    }
+  };
+
   return (
     <div className="chat-container">
       <h2>🧠 AI Chatbot</h2>
@@ -223,6 +228,9 @@ const Chatbot = () => {
           </button>
           <button onClick={handleVoiceInput} disabled={loading}>
             🎤
+          </button>
+          <button onClick={handleReadAloud} disabled={loading || !lastBotResponse}>
+            🔊 Read Aloud
           </button>
           <button onClick={() => speechSynthesis.cancel()} disabled={loading}>
             ⛔ Stop

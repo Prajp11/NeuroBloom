@@ -318,202 +318,206 @@ const stressWeights = {
     "🌅 Nothing (neutral)": 0,
   },
   sad: {
-    "😞 Yes (sad)": 2,
+    "😞 Yes (sad)": 1,
     "🤔 Vague idea (sad)": 1,
-    "🌧️ No reason (sad)": 3,
-    "🚫 Don't want to think (sad)": 4,
-    "⏳ Just today (sad)": 1,
-    "📅 Few days (sad)": 2,
-    "🕰️ Weeks or longer (sad)": 3,
-    "😔 Always (sad)": 4,
-    "🎭 Comes and goes (sad)": 1,
-    "⚖️ Sometimes eases (sad)": 2,
-    "🌊 Feels constant (sad)": 4,
+    "🌧️ No reason (sad)": 1,
+    "🚫 Don't want to think (sad)": 1,
+    "⏳ Just today (sad)": 0,
+    "📅 Few days (sad)": 1,
+    "🕰️ Weeks or longer (sad)": 2,
+    "😔 Always (sad)": 3,
+    "🎭 Comes and goes (sad)": 0,
+    "⚖️ Sometimes eases (sad)": 0,
+    "🌊 Feels constant (sad)": 2,
     "🤷 Hard to tell (sad)": 2,
     "💬 Yes, helped (sad)": 0,
-    "😞 Yes, no difference (sad)": 2,
-    "🤔 No, but should (sad)": 2,
-    "🤐 No, prefer alone (sad)": 3,
+    "😞 Yes, no difference (sad)": 1,
+    "🤔 No, but should (sad)": 0,
+    "🤐 No, prefer alone (sad)": 1,
     "📰 Recent event (sad)": 0,
-    "🔄 Ongoing issue (sad)": 2,
-    "🤷 No reason (sad)": 3,
-    "🤔 Not sure (sad)": 3,
-    "😴 Sleep issues (sad)": 3,
-    "🍽️ Appetite change (sad)": 2,
-    "🔄 Both (sad)": 4,
+    "🔄 Ongoing issue (sad)": 1,
+    "🤷 No reason (sad)": 1,
+    "🤔 Not sure (sad)": 1,
+    "😴 Sleep issues (sad)": 1,
+    "🍽️ Appetite change (sad)": 0,
+    "🔄 Both (sad)": 2,
     "✅ Normal (sad)": 0,
     "😕 Hard but try (sad)": 1,
-    "😞 No interest (sad)": 3,
-    "⚖️ Sometimes (sad)": 1,
-    "😔 Forcing myself (sad)": 3,
-    "📉 Struggle with tasks (sad)": 4,
-    "🏃 Push through (sad)": 2,
-    "✅ Function normally (sad)": 1,
+    "😞 No interest (sad)": 1,
+    "⚖️ Sometimes (sad)": 0,
+    "😔 Forcing myself (sad)": 1,
+    "📉 Struggle with tasks (sad)": 1,
+    "🏃 Push through (sad)": 1,
+    "✅ Function normally (sad)": 0,
     "🤷 Not noticed (sad)": 0,
-    "🔄 Yes, similar (sad)": 2,
-    "😞 Feels worse (sad)": 3,
-    "🆕 New for me (sad)": 2,
-    "🤔 Can't recall (sad)": 1,
-    "🙏 Yes (sad)": 2,
+    "🔄 Yes, similar (sad)": 0,
+    "😞 Feels worse (sad)": 1,
+    "🆕 New for me (sad)": 0,
+    "🤔 Can't recall (sad)": 0,
+    "🙏 Yes (sad)": 0,
     "🤷 Maybe (sad)": 1,
-    "🚫 No (sad)": 4,
-    "😞 Just want better (sad)": 3,
+    "🚫 No (sad)": 1,
+    "😞 Just want better (sad)": 0,
   },
   angry: {
-    "😡 Conflict (angry)": 3,
-    "🚦 Situation (angry)": 2,
-    "🤦 Personal mistakes (angry)": 1,
-    "🤷 No idea (angry)": 2,
-    "🔥 Almost daily (angry)": 4,
-    "⏳ Sometimes (angry)": 3,
-    "🧘 Rarely (angry)": 2,
-    "🆕 First time (angry)": 1,
-    "😐 1-3 (angry)": 1,
-    "😤 4-6 (angry)": 2,
-    "😠 7-9 (angry)": 3,
-    "🌋 10 - Extreme (angry)": 4,
-    "🎮 Distractions (angry)": 1,
-    "💬 Venting (angry)": 2,
-    "😶 Suppress (angry)": 3,
-    "💥 Impulsive (angry)": 4,
-    "👥 Someone (angry)": 2,
+    "😡 Conflict (angry)": 1,
+    "🚦 Situation (angry)": 0,
+    "🤦 Personal mistakes (angry)": 0,
+    "🤷 No idea (angry)": 1,
+    "🔥 Almost daily (angry)": 2,
+    "⏳ Sometimes (angry)": 0,
+    "🧘 Rarely (angry)": 0,
+    "🆕 First time (angry)": 0,
+    "😐 1-3 (angry)": 0,
+    "😤 4-6 (angry)": 1,
+    "😠 7-9 (angry)": 2,
+    "🌋 10 - Extreme (angry)": 2,
+    "🎮 Distractions (angry)": 0,
+    "💬 Venting (angry)": 1,
+    "😶 Suppress (angry)": 0,
+    "💥 Impulsive (angry)": 1,
+    "👥 Someone (angry)": 0,
     "🌍 Situation (angry)": 1,
-    "🤦 Myself (angry)": 2,
-    "😠 Not sure (angry)": 3,
+    "🤦 Myself (angry)": 0,
+    "😠 Not sure (angry)": 1,
     "🌿 Yes, helped (angry)": 0,
     "😕 No effect (angry)": 2,
-    "🏞️ Open to try (angry)": 1,
-    "❌ Doesn't work (angry)": 4,
-    "🚨 Can't focus (angry)": 4,
-    "💼 Push through (angry)": 2,
+    "🏞️ Open to try (angry)": 0,
+    "❌ Doesn't work (angry)": 2,
+    "🚨 Can't focus (angry)": 1,
+    "💼 Push through (angry)": 1,
     "✅ Normal (angry)": 0,
-    "🤷 Not noticed (angry)": 1,
-    "💬 Yes (angry)": 2,
-    "🤐 Prefer alone (angry)": 3,
-    "🤔 Maybe later (angry)": 1,
-    "🚨 Immediate help (angry)": 4,
-    "🔄 Yes (angry)": 2,
-    "🤷 Maybe (angry)": 1,
+    "🤷 Not noticed (angry)": 0,
+    "💬 Yes (angry)": 0,
+    "🤐 Prefer alone (angry)": 1,
+    "🤔 Maybe later (angry)": 0,
+    "🚨 Immediate help (angry)": 0,
+    "🔄 Yes (angry)": 1,
+    "🤷 Maybe (angry)": 0,
     "📅 Only today (angry)": 0,
-    "🔗 Feel stuck (angry)": 3,
-    "📘 Yes (angry)": 2,
-    "🤔 Maybe (angry)": 1,
-    "⏳ Just wait (angry)": 0,
-    "🛠️ Have my own (angry)": 2,
+    "🔗 Feel stuck (angry)": 2,
+    "📘 Yes (angry)": 0,
+    "🤔 Maybe (angry)": 0,
+    "⏳ Just wait (angry)": 1,
+    "🛠️ Have my own (angry)": 1,
   },
   stressed: {
-    "🏫 Work (stressed)": 4,
-    "💰 Finances (stressed)": 4,
-    "💬 Relationships (stressed)": 3,
-    "🤯 Uncertainty (stressed)": 4,
-    "⏳ Just today (stressed)": 1,
-    "📅 Few weeks (stressed)": 2,
-    "🕰️ Over a month (stressed)": 3,
-    "⚠️ Ongoing (stressed)": 5,
-    "✅ Yes, too much to handle (stressed)": 5,
-    "⚖️ Sometimes (stressed)": 3,
-    "🔄 Only in high-pressure situations (stressed)": 2,
+    "🏫 Work (stressed)": 0,
+    "💰 Finances (stressed)": 0,
+    "💬 Relationships (stressed)": 0,
+    "🤯 Uncertainty (stressed)": 1,
+    "⏳ Just today (stressed)": 0,
+    "📅 Few weeks (stressed)": 1,
+    "🕰️ Over a month (stressed)": 2,
+    "⚠️ Ongoing (stressed)": 3,
+    "✅ Yes, too much to handle (stressed)": 1,
+    "⚖️ Sometimes (stressed)": 0,
+    "🔄 Only in high-pressure situations (stressed)": 0,
     "❌ No, I feel in control (stressed)": 0,
-    "😣 Frequently (stressed)": 4,
-    "😞 Occasionally (stressed)": 2,
-    "🚑 Only in extreme stress (stressed)": 5,
+    "😣 Frequently (stressed)": 1,
+    "😞 Occasionally (stressed)": 0,
+    "🚑 Only in extreme stress (stressed)": 0,
     "👍 No symptoms (stressed)": 0,
-    "🧘 Yes, meditation (stressed)": 1,
-    "🚶 Short break (stressed)": 2,
-    "📵 No, but I want to (stressed)": 3,
-    "🔄 No, too busy (stressed)": 4,
+    "🧘 Yes, meditation (stressed)": 0,
+    "🚶 Short break (stressed)": 0,
+    "📵 No, but I want to (stressed)": 1,
+    "🔄 No, too busy (stressed)": 2,
     "😴 Well (stressed)": 0,
-    "😐 Okay, but tired (stressed)": 2,
-    "😵 Poorly (stressed)": 4,
-    "💀 Feeling drained (stressed)": 5,
-    "🚶 Alone time (stressed)": 1,
-    "🎶 Music (stressed)": 2,
-    "💬 Talk to friends (stressed)": 3,
-    "⚖️ Balance is key (stressed)": 2,
-    "🛀 Rest time (stressed)": 1,
-    "⏳ Long-term (stressed)": 3,
-    "🔥 Burnout (stressed)": 5,
-    "🍂 Nature time (stressed)": 2,
-    "⚡ Yes, I want to reduce stress (stressed)": 1,
-    "💼 Overwork (stressed)": 4,
-    "💬 Discussion (stressed)": 3,
-    "🛋️ Sit and relax (stressed)": 2,
-    "💪 Power through (stressed)": 4,
-    "🛀 Relaxation (stressed)": 1,
+    "😐 Okay, but tired (stressed)": 0,
+    "😵 Poorly (stressed)": 1,
+    "💀 Feeling drained (stressed)": 2,
+    "💖 Yes(stressed)": 0,
+    "😕 Somewhat(stressed)": 0,
+    "🤐 No (stressed)": 1,
+    "🤷 Haven’t reached out(stressed)": 1,
+    "🎉Yes, hobbies(stressed)": 0,
+    "🕰️ Sometimes(stressed)": 0,
+    "⏳ Rarely (stressed)": 1,
+    "❌ Never (stressed)": 1,
+    "✅ Yes (stressed)": 0,
+    "📋 Maybe (stressed)": 0,
+    "🕰️ Not really (stressed)": 1,
+    "❌ No change (stressed)": 2,
+    "🧠 Yes (stressed)": 0,
+    "⏳ Maybe (stressed)": 0,
+    "🤷 Not sure (stressed)": 1,
+    "❌ No (stressed)": 1,
   }
 };
 
-// ✅ Updated Function to Calculate Stress Level More Clearly
-// ✅ Function to Calculate Only Score (adjusted for each mood)
+// ✅ Function to calculate score based on mood and response
 const calculateStressScore = (responses, mood) => {
   let score = 0;
-
-  // Get the correct stress weights for the selected mood
   const moodWeights = stressWeights[mood];
 
-  // Add the stress value of each answer based on the mood's weights
   Object.values(responses).forEach((answer) => {
-    if (moodWeights.hasOwnProperty(answer)) {
-      score += moodWeights[answer];
+    const key = `${answer.trim()} (${mood})`;  // ✅ Fixing format
+
+    if (moodWeights.hasOwnProperty(key)) {
+      score += moodWeights[key];
+    } else {
+      console.warn(`⚠️ No match found for: "${key}"`);
     }
   });
 
   return score;
 };
 
-// ✅ Separate Function to Calculate Stress Level from Score
+
+// ✅ Function to calculate stress level
 const calculateStressLevel = (score) => {
-  if (score >= 8) {
-    return "severe";
-  } else if (score >= 4) {
-    return "moderate"; // moderate stress
-  } else if (score > 0) {
-    return "mild"; // mild or low stress levels
-  } else {
-    return "normal"; // Handle the case for zero or very low scores
-  }
+  if (score >= 8) return "severe";
+  else if (score >= 4) return "moderate";
+  else if (score > 0) return "mild";
+  else return "normal";
 };
 
-// ✅ Solution Component (updated for mood-based logic)
+
+
+// ✅ Main SolutionRecommendations component
 const SolutionRecommendations = ({ mood, responses }) => {
   if (!mood || !responses || Object.keys(responses).length === 0) return null;
 
-  const score = calculateStressScore(responses, mood); // First, get numeric score based on mood
-  const stressLevel = calculateStressLevel(score); // Then get level mild/moderate/severe or normal
+  const score = calculateStressScore(responses, mood);
+  const stressLevel = calculateStressLevel(score);
 
   return (
     <div className="solution-section">
       <h3>Recommended Solutions:</h3>
 
-      {stressLevel === "severe" ? (
+      {stressLevel === "severe" && (
         <>
           <p className="solution-text">🚨 Your stress level is high. We recommend professional therapy.</p>
           <Link to="/therapy-booking">
             <button className="therapy-btn">Book a Therapy Session</button>
           </Link>
         </>
-      ) : stressLevel === "normal" ? (
+      )}
+
+      {stressLevel === "moderate" || stressLevel === "mild" ? (
         <>
-          <p className="solution-text">✔️ Your stress level is normal. Here are some simple suggestions for well-being.</p>
+          <p className="solution-text">✔️ Your stress level is at a manageable level. Try the following:</p>
           {Object.values(responses)
             .flatMap((answer) => solutionMapping[mood]?.[answer] || [])
-            .slice(0, 3) // Limit to 3 suggestions for normal stress
-            .map((solution, index) => (
-              <p key={index} className="solution-text">🔹 {solution}</p>
-            ))}
-        </>
-      ) : stressLevel === "mild" || stressLevel === "moderate" ? (
-        <>
-          <p className="solution-text">✔️ Your stress level is at a manageable level. Here are some recommended steps to feel better:</p>
-          {Object.values(responses)
-            .flatMap((answer) => solutionMapping[mood]?.[answer] || [])
-            .sort(() => 0.5 - Math.random()) // Randomize recommendations
-            .slice(0, 4) // Show 4 solutions
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4)
             .map((solution, index) => (
               <p key={index} className="solution-text">🔹 {solution}</p>
             ))}
         </>
       ) : null}
+
+      {stressLevel === "normal" && (
+        <>
+          <p className="solution-text">🎉 You’re doing well! Keep nurturing your well-being.</p>
+          {Object.values(responses)
+            .flatMap((answer) => solutionMapping[mood]?.[answer] || [])
+            .slice(0, 3)
+            .map((solution, index) => (
+              <p key={index} className="solution-text">🔹 {solution}</p>
+            ))}
+        </>
+      )}
     </div>
   );
 };

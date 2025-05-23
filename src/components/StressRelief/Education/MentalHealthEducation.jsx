@@ -1,77 +1,102 @@
 import React from 'react';
+import '../../../App.css';
+import stressImage from '../../../Images/MentalHealth/Stress_1.png';
+import mentalImage from '../../../Images/MentalHealth/Mental_H.png';
+import sleep from '../../../Images/MentalHealth/Sleep.png';
+import anxiety from '../../../Images/MentalHealth/Anxiety.png';
+import exerice from '../../../Images/MentalHealth/Exercise.png';
+import workplace from '../../../Images/MentalHealth/Workplace.png';
+import depression from '../../../Images/MentalHealth/Depression.png';
+import ptsd from '../../../Images/MentalHealth/PTSD.png';
+import nutrition from '../../../Images/MentalHealth/Nutrition.png';
+import power from '../../../Images/MentalHealth/Power.png';
+import resilience from '../../../Images/MentalHealth/Resilience.png';
+import socialmedia from '../../../Images/MentalHealth/Social Media.png';
 
 const articles = [
   {
     title: 'What is Stress?',
-    description: `Stress is a natural physical and mental response to challenges or demands. It can be triggered by a variety of situations, such as work deadlines, financial problems, or personal issues. While some stress can motivate us to take action, chronic stress can have harmful effects on both our mental and physical health. Prolonged exposure to stress can lead to anxiety, depression, and other serious health problems. It's important to identify the sources of stress in your life and learn healthy ways to manage them.`,
+    summary: 'Stress is a natural response to challenges and demands in life. It can be beneficial in small doses but becomes harmful when chronic. Understanding the causes and learning to manage it effectively is essential for maintaining mental and physical well-being.',
+    image: stressImage,
     link: 'https://www.helpguide.org/articles/stress/stress-symptoms-causes-and-effects.htm',
-    color: '#FFEB3B', // Yellow
+    color: '#FFEB3B',
   },
   {
     title: 'Understanding Mental Health',
-    description: `Mental health refers to a person's emotional, psychological, and social well-being. It affects how we think, feel, and behave in daily life. Mental health problems are common, and many people will experience mental health challenges at some point. These issues can range from stress, anxiety, and depression to more serious conditions like schizophrenia and bipolar disorder. It's essential to prioritize mental health just like physical health and seek help when needed.`,
-    link: 'https://www.mentalhealth.gov/basics/what-is-mental-health',
-    color: '#81C784', // Green
+    summary: 'Mental health includes emotional, psychological, and social well-being. It influences cognition, perception, and behavior. Prioritizing mental health is crucial for coping with stress, connecting with others, and making sound decisions in daily life.',
+    image: mentalImage,
+    link: 'https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response',
+    color: '#81C784',
   },
   {
     title: 'The Importance of Sleep for Mental Health',
-    description: `Sleep plays a vital role in mental health. It helps your brain function properly, improve memory, and regulate mood. Lack of sleep, or poor-quality sleep, can lead to problems like irritability, poor concentration, and emotional instability. Over time, sleep deprivation can contribute to mental health issues such as anxiety and depression. It is essential to practice good sleep hygiene, such as maintaining a regular sleep schedule and creating a comfortable sleep environment.`,
+    summary: 'Sleep plays a vital role in processing emotions and restoring brain function. Inadequate sleep can contribute to anxiety, irritability, and depression. Prioritizing consistent, quality rest improves mental resilience and emotional balance.',
+    image: sleep,
     link: 'https://www.sleepfoundation.org/mental-health',
-    color: '#64B5F6', // Blue
+    color: '#64B5F6',
   },
   {
     title: 'How to Deal with Anxiety',
-    description: `Anxiety is a feeling of unease or worry about future events or situations. It's normal to feel anxious from time to time, but chronic anxiety can interfere with daily activities and overall well-being. Coping with anxiety involves recognizing when it’s becoming overwhelming and taking steps to manage it. Relaxation techniques such as deep breathing, mindfulness, and progressive muscle relaxation can help reduce anxiety. If anxiety becomes severe, it's important to seek professional help.`,
+    summary: 'Anxiety is a natural emotion but can become overwhelming if unmanaged. Techniques like deep breathing, progressive relaxation, and cognitive reframing help reduce symptoms. Support networks and therapy also play a key role in long-term management.',
+    image: anxiety,
     link: 'https://www.psychologytoday.com/us/basics/anxiety',
-    color: '#E1BEE7', 
+    color: '#E1BEE7',
   },
   {
     title: 'How Physical Activity Improves Mental Health',
-    description: `Exercise is not only good for your body, but it's also beneficial for your mental health. Physical activity releases endorphins, chemicals in the brain that act as natural painkillers and mood elevators. Regular exercise can reduce symptoms of depression and anxiety. Activities like walking, running, swimming, and yoga can all contribute to better mental well-being. Staying active is an essential component of maintaining both mental and physical health.`,
-    link: 'https://www.mentalhealth.org.uk/a-to-z/p/physical-activity',
-    color: '#9C27B0', // Purple
+    summary: 'Regular physical activity reduces stress hormones and boosts endorphins. It helps alleviate symptoms of depression and anxiety while enhancing memory and self-confidence. Even light exercises like walking can make a meaningful difference.',
+    image: exerice,
+    link: 'https://www.health.harvard.edu/staying-healthy/exercising-to-relax',
+    color: '#CEEB87',
   },
   {
     title: 'How to Manage Stress in the Workplace',
-    description: `Workplace stress is a common issue that can affect your productivity and overall well-being. It's important to recognize stressors at work and address them early. Simple steps such as prioritizing tasks, taking regular breaks, and seeking support from coworkers or supervisors can help reduce stress. Additionally, practicing relaxation techniques and maintaining a healthy work-life balance are essential to manage workplace stress effectively.`,
+    summary: 'Work-related stress can cause burnout and emotional exhaustion. Techniques such as time management, setting boundaries, and mindfulness can enhance productivity and emotional health. Employers also play a role in creating supportive environments.',
+    image: workplace,
     link: 'https://www.verywellmind.com/how-to-manage-workplace-stress-3144610',
-    color: '#FFCC80', // Light Orange
+    color: '#FFCC80',
   },
   {
     title: 'What is Depression and How Can You Manage It?',
-    description: `Depression is a common but serious mood disorder that affects your feelings, thoughts, and behaviors. It can lead to a variety of emotional and physical problems, making it difficult to carry out everyday tasks. Depression can be triggered by life events, genetics, or other factors. Symptoms of depression include persistent sadness, loss of interest in activities, and difficulty concentrating. It’s essential to seek professional help, practice self-care, and engage in activities that promote emotional well-being.`,
+    summary: 'Depression affects how you feel, think, and handle daily activities. It may manifest as prolonged sadness, fatigue, and lack of interest. Effective treatment may include therapy, medication, lifestyle changes, and strong social support.',
+    image: depression,
     link: 'https://www.nimh.nih.gov/health/topics/depression',
-    color: '#81D4FA', // Light Blue
+    color: '#81D4FA',
   },
   {
     title: 'Dealing with Post-Traumatic Stress Disorder (PTSD)',
-    description: `PTSD can occur after someone has experienced or witnessed a traumatic event, such as a car accident, combat, or sexual assault. Symptoms include flashbacks, nightmares, and emotional numbness. PTSD can significantly impact a person's quality of life, but there are effective treatments available. Therapy, medication, and support groups are all useful tools in helping individuals manage PTSD. Reaching out for support and professional treatment is the first step toward recovery.`,
-    link: 'https://www.mentalhealth.org.uk/a-to-z/p/ptsd',
-    color: '#FF8A80', // Light Red
+    summary: 'PTSD can develop after exposure to traumatic events. Symptoms include nightmares, flashbacks, and emotional numbness. Early intervention with therapy and support can significantly improve recovery and quality of life.',
+    image: ptsd,
+    link: 'https://www.nhs.uk/mental-health/conditions/post-traumatic-stress-disorder-ptsd/treatment/',
+    color: '#FF8A80',
   },
   {
     title: 'The Role of Nutrition in Mental Health',
-    description: `Nutrition plays a critical role in maintaining mental health. Eating a balanced diet rich in vitamins, minerals, and omega-3 fatty acids can improve brain function, boost mood, and reduce symptoms of anxiety and depression. A healthy diet contributes to better sleep, energy levels, and overall well-being. Foods such as leafy greens, fatty fish, nuts, and whole grains are particularly beneficial for mental health. It’s essential to make mindful eating choices to support both physical and mental health.`,
-    link: 'https://www.psychologytoday.com/us/blog/urban-survival/201705/the-role-of-nutrition-in-mental-health',
-    color: '#C5E1A5', // Light Green
+    summary: 'What you eat influences how you feel. Nutrient-rich diets improve mood and cognitive function, while deficiencies can contribute to anxiety and depression. Consuming whole foods, omega-3s, and probiotics supports brain and gut health.',
+    image: nutrition,
+    link: 'https://www.health.harvard.edu/blog/nutritional-psychiatry-your-brain-on-food-201511168626',
+    color: '#C5E1A5',
   },
   {
     title: 'The Power of Meditation for Mental Clarity',
-    description: `Meditation is a practice that involves focusing the mind to achieve a state of calm and clarity. It has been shown to reduce stress, improve focus, and promote emotional balance. Regular meditation can also help reduce symptoms of anxiety and depression. There are many types of meditation, including mindfulness meditation, guided meditation, and transcendental meditation. Incorporating meditation into your daily routine can have profound benefits for your mental health.`,
+    summary: 'Meditation fosters awareness, inner calm, and emotional control. Regular practice has been shown to lower cortisol levels, increase focus, and reduce negative thought patterns. It’s a valuable tool for mental and emotional well-being.',
+    image: power,
     link: 'https://www.headspace.com/meditation/benefits',
-    color: '#FFEB3B', // Yellow
+    color: '#FFEB3B',
   },
   {
     title: 'How to Build Resilience to Overcome Adversity',
-    description: `Resilience is the ability to bounce back from difficult situations and adversity. It is a key component of mental health and well-being. Building resilience involves developing a positive mindset, learning how to manage stress, and seeking support from others when necessary. Resilient individuals are able to navigate challenges with strength and maintain their emotional balance. Practices like gratitude, mindfulness, and problem-solving can help enhance resilience.`,
+    summary: 'Resilience enables individuals to recover from setbacks and thrive. It involves developing coping strategies, optimism, and a strong sense of purpose. Through practice and support, resilience can be strengthened over time.',
+    image: resilience,
     link: 'https://www.psychologytoday.com/us/basics/resilience',
-    color: '#E1BEE7', // Light Purple
+    color: '#E1BEE7',
   },
   {
     title: 'The Impact of Social Media on Mental Health',
-    description: `Social media is a double-edged sword for mental health. While it connects people, fosters communication, and provides information, excessive use can contribute to anxiety, depression, and low self-esteem. Constant comparison to others on social media can negatively impact one's body image and overall well-being. To maintain good mental health, it's essential to use social media in moderation, set boundaries, and be mindful of the content you engage with.`,
-    link: 'https://www.psychologytoday.com/us/blog/mental-health-the-digital-age/201809/how-social-media-affects-mental-health',
-    color: '#FFB74D', // Light Orange
+    summary: 'Social media can affect self-image, mood, and attention span. While it offers connection, excessive use may lead to anxiety, loneliness, or comparison. Setting time limits and curating feeds can improve digital well-being.',
+    image: socialmedia,
+    link: 'https://health.ucdavis.edu/blog/cultivating-health/social-medias-impact-our-mental-health-and-tips-to-use-it-safely/2024/05',
+    color: '#FFB74D',
   },
 ];
 
@@ -80,7 +105,7 @@ const MentalHealthEducation = () => {
     <div className="education-container">
       <h2 className="education-title">Mental Health Education</h2>
       <p className="education-description">
-        Explore the basics of mental health, stress, and anxiety management, along with practical tips on improving overall well-being. These articles provide a solid foundation for understanding key mental health topics, along with links to further resources.
+        Explore the basics of mental health, stress, and anxiety management, along with practical tips on improving overall well-being.
       </p>
       <div className="article-cards">
         {articles.map((article, index) => (
@@ -89,10 +114,11 @@ const MentalHealthEducation = () => {
             className="article-card"
             style={{ backgroundColor: article.color }}
           >
+            <img src={article.image} alt={article.title} className="article-image" />
             <h3>{article.title}</h3>
-            <p>{article.description}</p>
+            <p>{article.summary}</p>
             <a href={article.link} target="_blank" rel="noopener noreferrer" className="read-more-link">
-              Read Full Article
+              Read Full Article →
             </a>
           </div>
         ))}
