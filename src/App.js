@@ -105,9 +105,9 @@ import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
-import MoodTracker from "./components/MoodTracker";
 import Chatbot from "./components/Chatbot";
 import TherapyBooking from "./pages/TherapyBooking";
+import MoodTracker from "./components/Moodtracker";
 import StressRelief from "./components/StressRelief/StressRelief";
 
 // Pages
