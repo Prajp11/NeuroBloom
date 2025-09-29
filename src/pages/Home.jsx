@@ -45,27 +45,72 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Welcome to Your Mental Health Companion</h1>
-      <p>
-        Empowering mental well-being with AI-driven therapy, personalized
-        support, and insightful analytics.
-      </p>
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Welcome to Your 
+            <span className="highlight-text"> Mental Health</span>
+            <span className="gradient-text"> Companion</span>
+          </h1>
+          <p className="hero-description">
+            Empowering mental well-being with AI-driven therapy, personalized
+            support, and insightful analytics for a healthier, happier you.
+          </p>
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">24/7</span>
+              <span className="stat-label">Support Available</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">10K+</span>
+              <span className="stat-label">Users Helped</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">AI-Powered</span>
+              <span className="stat-label">Smart Therapy</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Features Section */}
-      <section className="card-container">
-        {features.map((feature, index) => (
-          <div key={index} className="feature-card" style={{ backgroundColor: feature.color }}>
-            <img src={feature.image} alt={feature.title} className="feature-image" /> {/* ✅ Fixed */}
-            <h3 className="feature-title">{feature.title}</h3>
-            <p className="feature-info">{feature.info}</p>
-          </div>
-        ))}
+      <section className="features-section-home">
+        <div className="section-header">
+          <h2 className="section-title">Comprehensive Mental Health Solutions</h2>
+          <p className="section-subtitle">Discover our suite of professional-grade tools designed to support your mental wellness journey</p>
+        </div>
+        <div className="card-container">
+          {features.map((feature, index) => (
+            <div key={index} className="feature-card modern-card" data-index={index}>
+              <div className="card-header" style={{ backgroundColor: feature.color }}>
+                <img src={feature.image} alt={feature.title} className="feature-image" />
+              </div>
+              <div className="card-body">
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-info">{feature.info}</p>
+                <div className="card-footer">
+                  <span className="learn-more">Learn More →</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Call-to-Action Button */}
-      <button className="login-button" onClick={() => setShowModal(true)}>
-        Login to Explore
-      </button>
+      {/* Call-to-Action Section */}
+      <div className="cta-section">
+        <div className="cta-content">
+          <h2 className="cta-title">Ready to Start Your Wellness Journey?</h2>
+          <p className="cta-description">Join thousands of users who have transformed their mental health with our platform</p>
+          <button className="login-button modern-btn" onClick={() => setShowModal(true)}>
+            <span>Get Started Today</span>
+            <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
       {/* Modal for Login/Signup Options */}
       {showModal && (

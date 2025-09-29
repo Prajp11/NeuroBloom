@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -16,36 +16,40 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Login Data:", formData); // ✅ Debugging Step
-
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/login/", formData, {
         headers: { "Content-Type": "application/json" },
       });
 
-      console.log("Login Response:", response.data); // ✅ Debugging Step
-
       if (response.status === 200 && response.data.access) {
         // ✅ Store tokens
         localStorage.setItem("accessToken", response.data.access);
         localStorage.setItem("refreshToken", response.data.refresh);
-        console.log("Access Token Saved:", localStorage.getItem("accessToken"));
 
-        // ✅ Delay to ensure localStorage is updated
-        setTimeout(() => {
-          console.log("Redirecting to Dashboard...");
-          navigate("/dashboard");
-        }, 1000);  // 1-second delay to ensure storage updates
+        // ✅ Navigate immediately to dashboard
+        navigate("/dashboard");
       } else {
         setError("Login failed. Please try again.");
       }
     } catch (error) {
-      console.error("Login Error:", error.response);
+      console.error("Login Error:", error);
+      console.error("Error Response:", error.response);
+      console.error("Error Request:", error.request);
+      console.error("Error Message:", error.message);
 
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password.");
+      if (error.response) {
+        // Server responded with error status
+        if (error.response.status === 401) {
+          setError("Invalid email or password.");
+        } else {
+          setError(`Server error: ${error.response.status} - ${error.response.statusText}`);
+        }
+      } else if (error.request) {
+        // Request was made but no response received
+        setError("Cannot connect to server. Please check if the backend server is running on http://127.0.0.1:8000");
       } else {
-        setError("Login failed. Please try again.");
+        // Something else happened
+        setError(`Network error: ${error.message}`);
       }
     }
   };
@@ -60,6 +64,10 @@ const Login = () => {
         <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
         <button type="submit">Login</button>
       </form>
+
+      <p className="signup-text">
+        Don't have an account? <Link to="/signup">Sign up here</Link>.
+      </p>
     </div>
   );
 };

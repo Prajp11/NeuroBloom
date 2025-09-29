@@ -20,3 +20,13 @@ export const refreshToken = async () => {
     return null;
   }
 };
+
+export const logout = () => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+};
+
+export const isAuthenticated = () => {
+  const token = localStorage.getItem("accessToken");
+  return token !== null && token !== "undefined";
+};

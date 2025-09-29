@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 
 // ✅ Expanded Solution Mapping for All Mood Choices
@@ -248,7 +248,7 @@ const stressWeights = {
 
 
 
-// ✅ Sanitize response to remove emojis and special characters
+// ✅ Sanitize response
 const sanitizeResponse = (input) => {
   return input
     .replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, "")
@@ -257,7 +257,7 @@ const sanitizeResponse = (input) => {
     .trim();
 };
 
-// ✅ Calculate stress score
+// ✅ Calculate score
 const calculateStressScore = (responses, mood) => {
   let score = 0;
   const moodWeights = stressWeights[mood] || {};
@@ -280,7 +280,7 @@ const calculateStressScore = (responses, mood) => {
   return score;
 };
 
-// ✅ Get stress level
+// ✅ Determine level
 const calculateStressLevel = (score) => {
   if (score >= 10) return "severe";
   if (score >= 6) return "moderate";
@@ -295,10 +295,18 @@ const SolutionsSuggestions = ({ mood, responses }) => {
 
   const stableResponses = useMemo(() => JSON.stringify(responses), [responses]);
 
+  const lastCalculatedRef = useRef({ mood: null, responses: null });
+
   useEffect(() => {
-    if (!mood || !responses || Object.keys(responses).length === 0) {
-      setScore(0);
-      setStressLevel("normal");
+    const isSameMood = lastCalculatedRef.current.mood === mood;
+    const isSameResponses = lastCalculatedRef.current.responses === stableResponses;
+
+    if (
+      !mood ||
+      !responses ||
+      Object.keys(responses).length === 0 ||
+      (isSameMood && isSameResponses)
+    ) {
       return;
     }
 
@@ -307,12 +315,18 @@ const SolutionsSuggestions = ({ mood, responses }) => {
       const calculatedScore = calculateStressScore(parsedResponses, mood);
       setScore(calculatedScore);
       setStressLevel(calculateStressLevel(calculatedScore));
+
+      // ✅ Store last inputs
+      lastCalculatedRef.current = {
+        mood,
+        responses: stableResponses,
+      };
     } catch (err) {
       console.error("⚠️ Error in stress calculation:", err);
       setScore(0);
       setStressLevel("normal");
     }
-  }, [mood, stableResponses]); // ✅ Fully resolves ESLint warning
+  }, [mood, stableResponses]);
 
   if (!mood || !responses || Object.keys(responses).length === 0) return null;
 
@@ -362,6 +376,5 @@ const SolutionsSuggestions = ({ mood, responses }) => {
     </div>
   );
 };
-
 
 export default SolutionsSuggestions;

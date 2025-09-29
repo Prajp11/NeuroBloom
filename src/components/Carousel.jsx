@@ -17,32 +17,47 @@ const Carousel = () => {
   useEffect(() => {
     const scroll = () => {
       if (carouselRef.current) {
-        carouselRef.current.scrollLeft += 2;
+        carouselRef.current.scrollLeft += 1.5;
         if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
           carouselRef.current.scrollLeft = 0;
         }
       }
     };
 
-    const interval = setInterval(scroll, 15); // Adjust speed here
+    const interval = setInterval(scroll, 20); // Smoother animation
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="carousel-section">
-    <h2 className="carousel-heading">Who We Are Helping</h2>
-    <div className="carousel-container">
-      <div className="carousel" ref={carouselRef}>
-        {[...carouselImages, ...carouselImages].map((item, index) => (
-          <div key={index} className="carousel-item">
-            <img src={item.img} alt={item.label} className="carousel-img" />
-            <p className="carousel-label">{item.label}</p>
-          </div>
-        ))}
+    <div className="carousel-section modern-carousel">
+      <div className="carousel-header">
+        <h2 className="carousel-heading">
+          <span className="heading-accent">Who We're</span>
+          <span className="heading-primary"> Empowering</span>
+        </h2>
+        <p className="carousel-subtitle">Supporting diverse communities with tailored mental health solutions</p>
+      </div>
+      
+      <div className="carousel-container">
+        <div className="carousel-track" ref={carouselRef}>
+          {[...carouselImages, ...carouselImages].map((item, index) => (
+            <div key={`carousel-item-${index}-${item.label.replace(/\s+/g, '-').toLowerCase()}`} className="carousel-item modern-carousel-item">
+              <div className="carousel-item-inner">
+                <div className="carousel-image-container">
+                  <img src={item.img} alt={item.label} className="carousel-img" />
+                  <div className="image-overlay"></div>
+                </div>
+                <div className="carousel-content">
+                  <h3 className="carousel-label">{item.label}</h3>
+                  <div className="carousel-accent-line"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Carousel;
