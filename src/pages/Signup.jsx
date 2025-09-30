@@ -109,52 +109,72 @@ const Signup = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Sign Up</h2>
-      {error && <p className="error-message">{error}</p>}
-      {success && <p className="success-message">Signup successful! Redirecting...</p>}
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-header">
+          <div className="auth-brand">
+            <div className="auth-brand-icon">🧠</div>
+            <div className="auth-brand-text">MindCare</div>
+          </div>
+          <h2>Join MindCare</h2>
+          <p className="auth-subtitle">Create your account and start your mental wellness journey today</p>
+        </div>
 
-      <form onSubmit={handleSubmit} className="auth-form">
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Email" 
-          value={formData.email}
-          onChange={handleChange} 
-          required 
-        />
-        <input 
-          type="text" 
-          name="username" 
-          placeholder="Username (min 3 characters)" 
-          value={formData.username}
-          onChange={handleChange} 
-          required 
-        />
-        <input 
-          type="password" 
-          name="password" 
-          placeholder="Password (min 6 characters)" 
-          value={formData.password}
-          onChange={handleChange} 
-          required 
-        />
-        <input 
-          type="password" 
-          name="confirmPassword" 
-          placeholder="Confirm Password" 
-          value={formData.confirmPassword}
-          onChange={handleChange} 
-          required 
-        />
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Signing Up..." : "Sign Up"}
-        </button>
-      </form>
+        {error && <div className="error-message">{error}</div>}
+        {success && <div className="success-message">Account created successfully! Redirecting to login...</div>}
 
-      <p className="login-text">
-        Already have an account? <Link to="/login">Login here</Link>.
-      </p>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-input-group">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Enter your email address" 
+              value={formData.email}
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="auth-input-group">
+            <input 
+              type="text" 
+              name="username" 
+              placeholder="Choose a username (min 3 characters)" 
+              value={formData.username}
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="auth-input-group">
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="Create a password (min 6 characters)" 
+              value={formData.password}
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="auth-input-group">
+            <input 
+              type="password" 
+              name="confirmPassword" 
+              placeholder="Confirm your password" 
+              value={formData.confirmPassword}
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Creating Account..." : "Create Account"}
+          </button>
+        </form>
+
+        <div className="auth-footer">
+          <p className="login-text">
+            Already have an account? <Link to="/login">Sign in here</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

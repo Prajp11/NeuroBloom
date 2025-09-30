@@ -55,19 +55,47 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>}
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-header">
+          <div className="auth-brand">
+            <div className="auth-brand-icon">🧠</div>
+            <div className="auth-brand-text">MindCare</div>
+          </div>
+          <h2>Welcome Back</h2>
+          <p className="auth-subtitle">Sign in to continue your mental wellness journey</p>
+        </div>
 
-      <form onSubmit={handleSubmit} className="auth-form">
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <button type="submit">Login</button>
-      </form>
+        {error && <div className="error-message">{error}</div>}
 
-      <p className="signup-text">
-        Don't have an account? <Link to="/signup">Sign up here</Link>.
-      </p>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-input-group">
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Enter your email address" 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <div className="auth-input-group">
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="Enter your password" 
+              onChange={handleChange} 
+              required 
+            />
+          </div>
+          <button type="submit">Sign In</button>
+        </form>
+
+        <div className="auth-footer">
+          <p className="signup-text">
+            Don't have an account? <Link to="/signup">Create one here</Link>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

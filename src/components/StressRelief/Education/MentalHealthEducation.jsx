@@ -101,27 +101,150 @@ const articles = [
 ];
 
 const MentalHealthEducation = () => {
+  // Function to get article tags based on content
+  const getArticleTags = (title) => {
+    const tagMap = {
+      'What is Stress?': ['Stress Management', 'Wellness', 'Health Tips'],
+      'Understanding Mental Health': ['Mental Wellness', 'Psychology', 'Self-Care'],
+      'The Importance of Sleep for Mental Health': ['Sleep Health', 'Recovery', 'Mental Wellness'],
+      'How to Deal with Anxiety': ['Anxiety', 'Coping Skills', 'Mental Health'],
+      'How Physical Activity Improves Mental Health': ['Exercise', 'Mental Wellness', 'Fitness'],
+      'How to Manage Stress in the Workplace': ['Work-Life Balance', 'Stress Management', 'Professional'],
+      'What is Depression and How Can You Manage It?': ['Depression', 'Mental Health', 'Treatment'],
+      'Dealing with Post-Traumatic Stress Disorder (PTSD)': ['PTSD', 'Trauma', 'Recovery'],
+      'The Role of Nutrition in Mental Health': ['Nutrition', 'Brain Health', 'Wellness'],
+      'The Power of Meditation for Mental Clarity': ['Meditation', 'Mindfulness', 'Mental Clarity'],
+      'How to Build Resilience to Overcome Adversity': ['Resilience', 'Coping Skills', 'Personal Growth'],
+      'The Impact of Social Media on Mental Health': ['Digital Wellness', 'Social Media', 'Mental Health']
+    };
+    return tagMap[title] || ['Mental Health', 'Wellness'];
+  };
+
   return (
-    <div className="education-container">
-      <h2 className="education-title">Mental Health Education</h2>
-      <p className="education-description">
-        Explore the basics of mental health, stress, and anxiety management, along with practical tips on improving overall well-being.
-      </p>
-      <div className="article-cards">
-        {articles.map((article, index) => (
-          <div
-            key={index}
-            className="article-card"
-            style={{ backgroundColor: article.color }}
-          >
-            <img src={article.image} alt={article.title} className="article-image" />
-            <h3>{article.title}</h3>
-            <p>{article.summary}</p>
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="read-more-link">
-              Read Full Article →
-            </a>
+    <div className="education-page">
+      <div className="education-container">
+        {/* Hero Section */}
+        <div className="education-hero">
+          <div className="education-hero-icon">📚</div>
+          <h2 className="education-title">Mental Health Education Hub</h2>
+          <p className="education-description">
+            Discover evidence-based insights, expert guidance, and practical strategies to 
+            enhance your mental well-being through comprehensive educational resources.
+          </p>
+          <div className="education-motivation">
+            <span>🧠</span>
+            <span>Knowledge is the first step to healing</span>
           </div>
-        ))}
+        </div>
+
+        {/* Educational Stats */}
+        <div className="education-stats">
+          <div className="stat-card">
+            <span className="stat-number">12</span>
+            <span className="stat-label">Expert Articles</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">100%</span>
+            <span className="stat-label">Evidence-Based</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">24/7</span>
+            <span className="stat-label">Available</span>
+          </div>
+        </div>
+
+        {/* Article Cards Grid */}
+        <div className="article-cards">
+          {articles.map((article, index) => (
+            <div
+              key={index}
+              className="article-card"
+              style={{ 
+                animationDelay: `${index * 0.1}s`,
+                background: `linear-gradient(135deg, ${article.color}15 0%, ${article.color}08 100%)`
+              }}
+            >
+              <img 
+                src={article.image} 
+                alt={article.title} 
+                className="article-image"
+                loading="lazy"
+              />
+              <div className="article-content">
+                <div className="article-tags">
+                  {getArticleTags(article.title).map((tag, tagIndex) => (
+                    <span key={tagIndex} className="article-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3>{article.title}</h3>
+                <p>{article.summary}</p>
+                <a 
+                  href={article.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="read-more-link"
+                  onClick={(e) => {
+                    // Add a subtle click feedback
+                    e.currentTarget.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                      e.currentTarget.style.transform = '';
+                    }, 150);
+                  }}
+                >
+                  <span>Read Full Article</span>
+                  <span className="read-more-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Information Section */}
+        <div style={{
+          marginTop: '60px',
+          textAlign: 'center',
+          padding: '40px',
+          background: 'rgba(255, 255, 255, 0.8)',
+          backdropFilter: 'blur(15px)',
+          borderRadius: '25px',
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          boxShadow: '0 15px 35px rgba(0, 0, 0, 0.08)'
+        }}>
+          <h3 style={{
+            fontSize: '1.8rem',
+            fontWeight: '800',
+            color: '#2c3e50',
+            marginBottom: '15px'
+          }}>
+            Continue Your Mental Wellness Journey
+          </h3>
+          <p style={{
+            fontSize: '1.1rem',
+            color: '#666',
+            lineHeight: '1.6',
+            maxWidth: '600px',
+            margin: '0 auto 25px'
+          }}>
+            These articles are curated by mental health professionals to provide you with 
+            reliable, actionable information for your wellness journey.
+          </p>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '10px',
+            background: 'linear-gradient(135deg, rgba(78, 205, 196, 0.2) 0%, rgba(78, 205, 196, 0.1) 100%)',
+            padding: '12px 25px',
+            borderRadius: '30px',
+            border: '1px solid rgba(78, 205, 196, 0.3)',
+            color: '#2c3e50',
+            fontWeight: '600'
+          }}>
+            <span>💡</span>
+            <span>Remember: Professional help is always available when you need it</span>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -326,7 +326,7 @@ const SolutionsSuggestions = ({ mood, responses }) => {
       setScore(0);
       setStressLevel("normal");
     }
-  }, [mood, stableResponses]);
+  }, [mood, stableResponses, responses]);
 
   if (!mood || !responses || Object.keys(responses).length === 0) return null;
 

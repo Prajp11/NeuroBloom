@@ -35,8 +35,14 @@ const Sidebar = () => {
     <div className={`sidebar ${isOpen ? "open" : "collapsed"}`}>
       {/* Sidebar Toggle Button */}
       <button className="toggle-btn" onClick={toggleSidebar}>
-        {isOpen ? "◀" : "▶"}
+        {isOpen ? "Collapse" : ""}
       </button>
+
+      {/* Brand Section */}
+      <div className="sidebar-brand">
+        <div className="brand-icon">🧠</div>
+        <h3>NeuroBloom</h3>
+      </div>
 
       {/* Sidebar Links */}
       <ul>

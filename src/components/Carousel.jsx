@@ -5,7 +5,7 @@ import organizations from '../Images/Home/organizations.png';
 import caregivers from '../Images/Home/caregivers.png';
 
 const carouselImages = [
-  { img: individual, label: 'Individuals with Mental Health Issues' },
+  { img: individual, label: 'Individuals Issues' },
   { img: healthcare, label: 'Healthcare Providers' },
   { img: organizations, label: 'Organizations' },
   { img: caregivers, label: 'Caregivers' },

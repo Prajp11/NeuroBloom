@@ -13,62 +13,96 @@ const features = [
     info: "Provides real-time emotional support, actionable insights, and mental health guidance using AI-driven conversations.",
     color: "#FFD700",
     image: chatbotImg,
+    learnMore: {
+      heading: "AI-Powered Chatbot",
+      details: "Our AI-powered chatbot offers 24/7 support, helping you manage stress, anxiety, and other mental health challenges. It uses advanced natural language processing to provide empathetic responses, mood tracking, and actionable self-care tips. All conversations are private and secure.",
+    },
   },
   {
     title: "Personalized Therapy Modules",
     info: "Offers AI-generated Cognitive Behavioral Therapy (CBT) exercises tailored to individual needs.",
     color: "#4CAF50",
     image: therapyImg,
+    learnMore: {
+      heading: "Personalized Therapy Modules",
+      details: "Access a library of AI-generated CBT exercises and therapy modules designed to address your unique needs. Our platform adapts to your progress, offering new exercises and feedback to help you build resilience and develop healthy coping strategies.",
+    },
   },
   {
     title: "Daily Mood Tracking",
     info: "Helps users monitor their mental state over time with interactive mood logs and trend analysis.",
     color: "#FF4500",
     image: moodtrackImg,
+    learnMore: {
+      heading: "Daily Mood Tracking",
+      details: "Track your mood daily with our intuitive mood logs. Visualize trends, identify triggers, and receive personalized insights to help you understand and improve your mental well-being over time.",
+    },
   },
   {
     title: "24/7 Multi-Mode Counseling",
     info: "Connect with professionals via chat, call, or video sessions while maintaining privacy and security.",
     color: "#3498db",
     image: dashboardImg,
+    learnMore: {
+      heading: "24/7 Multi-Mode Counseling",
+      details: "Connect instantly with licensed mental health professionals through chat, voice, or video calls. Our counselors are available around the clock to provide confidential support, guidance, and crisis intervention whenever you need it.",
+    },
   },
   {
     title: "AI-Driven Assessments",
     info: "Guided mental health evaluations with intelligent feedback and personalized action plans.",
     color: "#9B59B6",
     image: assessmentImg,
+    learnMore: {
+      heading: "AI-Driven Assessments",
+      details: "Take comprehensive mental health assessments powered by AI. Receive instant, personalized feedback and actionable plans to help you take the next steps in your wellness journey.",
+    },
   },
 ];
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
+  const [featureModal, setFeatureModal] = useState({ open: false, feature: null });
 
   return (
     <div className="home-container">
       {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-content">
+          <div className="brand-intro">
+            <div className="brand-icon">🧠</div>
+            <span className="brand-name">NeuroBloom</span>
+          </div>
           <h1 className="hero-title">
-            Welcome to Your 
+            Your Trusted 
             <span className="highlight-text"> Mental Health</span>
             <span className="gradient-text"> Companion</span>
           </h1>
           <p className="hero-description">
-            Empowering mental well-being with AI-driven therapy, personalized
-            support, and insightful analytics for a healthier, happier you.
+            Empowering mental well-being through AI-driven therapy, personalized
+            support, and intelligent analytics for a healthier, happier you.
           </p>
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">24/7</span>
-              <span className="stat-label">Support Available</span>
+              <div className="stat-icon">🕒</div>
+              <div className="stat-content">
+                <span className="stat-number">24/7</span>
+                <span className="stat-label">Support Available</span>
+              </div>
             </div>
             <div className="stat-item">
-              <span className="stat-number">10K+</span>
-              <span className="stat-label">Users Helped</span>
+              <div className="stat-icon">🤖</div>
+              <div className="stat-content">
+                <span className="stat-number">AI-Powered</span>
+                <span className="stat-label">Smart Therapy</span>
+              </div>
             </div>
             <div className="stat-item">
-              <span className="stat-number">AI-Powered</span>
-              <span className="stat-label">Smart Therapy</span>
+              <div className="stat-icon">🌟</div>
+              <div className="stat-content">
+                <span className="stat-number">Trusted</span>
+                <span className="stat-label">By Thousands</span>
+              </div>
             </div>
           </div>
         </div>
@@ -90,7 +124,12 @@ const Home = () => {
                 <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-info">{feature.info}</p>
                 <div className="card-footer">
-                  <span className="learn-more">Learn More →</span>
+                  <button
+                    className="learn-more clickable"
+                    onClick={() => setFeatureModal({ open: true, feature })}
+                  >
+                    Learn More →
+                  </button>
                 </div>
               </div>
             </div>
@@ -127,6 +166,19 @@ const Home = () => {
               </Link>
             </div>
             <button className="close-btn" onClick={() => setShowModal(false)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal for Feature Learn More */}
+      {featureModal.open && featureModal.feature && (
+        <div className="modal-overlay" onClick={() => setFeatureModal({ open: false, feature: null })}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <h2>{featureModal.feature.learnMore.heading}</h2>
+            <p>{featureModal.feature.learnMore.details}</p>
+            <button className="close-btn" onClick={() => setFeatureModal({ open: false, feature: null })}>
               Close
             </button>
           </div>
