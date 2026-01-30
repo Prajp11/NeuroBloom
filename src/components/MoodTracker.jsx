@@ -230,11 +230,107 @@ const MoodTracker = () => {
   };
 
   const calculateStressScore = () => {
-    let score = 0;
-    Object.values(responses).forEach((option) => {
-      score += option.includes("Yes") ? 2 : 1;
+    // Define stress weights for each mood and their answer options
+    const stressWeights = {
+      happy: {
+        1: [0, 0, 0, 0], // What made you happy
+        2: [0, 0, 0, 0], // How long feeling happy
+        3: [0, 1, 2, 0], // Social connection
+        4: [0, 0, 1, 0], // Achievement related
+        5: [0, 0, 1, 1], // Hobbies
+        6: [0, 0, 1, 1], // Energy levels
+        7: [0, 1, 2, 3], // Positive interactions
+        8: [1, 0, 0, 0], // Temporary or long-term
+        9: [0, 0, 1, 2], // Sustain happiness
+        10: [0, 0, 0, 1]  // Spread happiness
+      },
+      neutral: {
+        1: [2, 0, 1, 2], // Indifferent or peaceful
+        2: [1, 1, 1, 2], // What could improve mood
+        3: [1, 2, 3, 2], // How long feeling this way
+        4: [0, 1, 2, 3], // Engaged or disconnected
+        5: [0, 0, 0, 2], // What led to neutral mood
+        6: [1, 1, 0, 1], // Want more energy
+        7: [0, 2, 2, 1], // Mental and physical well-being
+        8: [0, 1, 1, 3], // Looking forward to anything
+        9: [1, 1, 0, 2], // Relaxation or motivation
+        10: [1, 1, 1, 2]  // What could make day better
+      },
+      sad: {
+        1: [2, 2, 3, 3], // Identify what's making you sad
+        2: [1, 2, 3, 4], // How long feeling this way
+        3: [2, 2, 3, 3], // Comes and goes or persistent
+        4: [1, 2, 2, 3], // Talked to someone
+        5: [2, 3, 3, 2], // Specific trigger
+        6: [3, 3, 4, 1], // Sleep or appetite changes
+        7: [2, 3, 2, 3], // Engaging in activities
+        8: [3, 2, 1, 2], // Affecting daily life
+        9: [2, 3, 2, 2], // Felt this before
+        10: [2, 2, 3, 4] // Want help to feel better
+      },
+      angry: {
+        1: [3, 3, 2, 2], // What triggered anger
+        2: [4, 3, 2, 2], // Anger frequency
+        3: [1, 2, 3, 4], // Intensity of anger
+        4: [2, 2, 3, 4], // How you cope
+        5: [3, 3, 3, 2], // Anger directed at
+        6: [1, 2, 2, 3], // Tried calming techniques
+        7: [4, 2, 1, 2], // Affecting focus
+        8: [2, 3, 2, 4], // Want to talk about it
+        9: [3, 2, 2, 3], // Past events influence
+        10: [2, 2, 3, 3] // Learn anger management
+      },
+      stressed: {
+        1: [3, 3, 3, 4], // Source of stress
+        2: [1, 2, 3, 4], // How long feeling stressed
+        3: [4, 3, 2, 1], // Overwhelmed with tasks
+        4: [4, 3, 2, 1], // Physical symptoms
+        5: [1, 2, 3, 4], // Taken a break
+        6: [1, 2, 3, 4], // Sleep quality
+        7: [1, 2, 3, 3], // Feel supported
+        8: [1, 2, 3, 4], // Time for yourself
+        9: [1, 2, 3, 3], // Breaking tasks into steps
+        10: [2, 2, 2, 3] // Need guidance on workload
+      }
+    };
+
+    let totalScore = 0;
+    let questionCount = 0;
+
+    // Get the current mood's questions
+    const currentMoodQuestions = moodQuestions[selectedMood];
+    
+    if (!currentMoodQuestions) {
+      setStressScore(0);
+      setShowResults(true);
+      return;
+    }
+
+    // Calculate score based on responses
+    Object.entries(responses).forEach(([questionId, selectedOption]) => {
+      const qId = parseInt(questionId);
+      const weights = stressWeights[selectedMood]?.[qId];
+      
+      if (weights) {
+        // Find which option was selected (0-indexed)
+        const question = currentMoodQuestions.find(q => q.id === qId);
+        if (question) {
+          const optionIndex = question.options.indexOf(selectedOption);
+          if (optionIndex !== -1) {
+            totalScore += weights[optionIndex];
+            questionCount++;
+          }
+        }
+      }
     });
-    setStressScore(score);
+
+    // Normalize score to 0-10 scale
+    const maxPossibleScore = questionCount * 4; // Max weight per question is 4
+    const normalizedScore = maxPossibleScore > 0 
+      ? Math.round((totalScore / maxPossibleScore) * 10) 
+      : 0;
+
+    setStressScore(normalizedScore);
     setShowResults(true);
   };
 

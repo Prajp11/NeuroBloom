@@ -2864,163 +2864,221 @@
 }
 
 
-/*  Mood Tracker Styling */
+/* ========================================
+   Modern Mood Tracker Styling
+   ======================================== */
+
 .mood-container {
-  text-align: center;
-  padding: 20px;
-  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fdff 0%, #e3f2fd 25%, #fff3e0 50%, #f1f8e9 75%, #fce4ec 100%);
+  padding: 40px 20px;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/*  Mood Selection */
+.mood-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.06) 1.5px, transparent 1.5px);
+  background-size: 100px 100px, 80px 80px;
+  pointer-events: none;
+}
+
+.mood-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mood-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 0 0 40px 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern Mood Selection */
 .mood-selection {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  flex-wrap: wrap;
 }
 
 .mood-btn {
-  font-size: 2rem;
-  border: none;
-  background: transparent;
+  width: 90px;
+  height: 90px;
+  font-size: 3rem;
+  border: 3px solid transparent;
+  background: white;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, background 0.3s ease;
-  border-radius: 10px;
+  transition: all 0.3s ease;
+  border-radius: 20px;
   padding: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .mood-btn:hover {
-  transform: scale(1.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
 }
 
-/*  Mood Button Selected */
 .mood-btn.selected {
-  background: #ffcc80; /* Light orange */
-  border-radius: 10px;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
 }
 
-/*  Mood Log Input */
-textarea {
-  width: 80%;
-  height: 60px;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-top: 15px;
-  resize: none;
-}
-
-/* Submit Button */
-.submit-btn {
-  padding: 12px 20px;
-  font-size: 1rem;
+.mood-btn.selected::after {
+  content: '✓';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  background-color: #4CAF50;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+/* Modern Textarea */
+.mood-container textarea {
+  width: 100%;
+  max-width: 600px;
+  height: 80px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  border-radius: 16px;
+  border: 2px solid #e9ecef;
+  margin: 20px auto;
+  resize: none;
+  background: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  display: block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mood-container textarea:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.mood-container textarea::placeholder {
+  color: #adb5bd;
+}
+
+/* Modern Submit Button */
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  color: white;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  margin-top: 15px;
+  transition: all 0.3s ease;
+  margin: 20px auto;
+  display: block;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.35);
+  width: auto;
+  max-width: fit-content;
 }
 
 .submit-btn:hover {
-  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.45);
 }
 
-/*  Status Message */
+.submit-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Status Message */
 .status-message {
+  text-align: center;
   font-size: 1.1rem;
-  color: #ff4500;
-  margin-top: 10px;
-}
-
-/* Mood History */
-.mood-history {
-  list-style-type: none;
-  padding: 0;
-}
-
-.mood-item {
-  background: #f5f5f5;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.mood-text {
-  font-weight: bold;
   color: #2c3e50;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
-
-/* Question Section */
-.question-section {
-  margin-top: 30px;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Question Box */
-.question-box {
-  margin-bottom: 15px;
-  text-align: left;
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Options Styling */
-.option-btn {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #ffffff;  /* White background */
-  color: #000000;  /* Black text */
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 5px;
-  margin-top: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, color 0.3s;
-}
-
-.option-btn:hover {
-  background: #f1f1f1;
-  transform: scale(1.02);
-}
-
-.option-btn.selected {
-  background: #4CAF50;  /* Green for selection */
-  color: white;
-  font-weight: bold;
-  border: 1px solid #388E3C;
-  transform: none;
-}
-
 
 /* Primary Questions Section */
 .primary-section {
-  margin-top: 30px;
-  padding: 20px;
-  background: #f1f1f1;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.primary-section h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0 0 30px 0;
+  font-weight: 700;
 }
 
 /* Primary Question Box */
 .primary-question-box {
-  margin-bottom: 15px;
-  text-align: left;
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 16px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.primary-question-box:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+}
+
+.primary-question-box h4 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 600;
 }
 
 /* Primary Option Buttons */
@@ -3028,76 +3086,277 @@ textarea {
   display: block;
   width: 100%;
   text-align: left;
-  background: #ffffff;  /* White background */
-  color: #000000;  /* Black text */
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 5px;
-  margin-top: 8px;
+  background: white;
+  color: #2c3e50;
+  border: 2px solid #dee2e6;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-top: 10px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, color 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-/* Hover Effect for Primary Options */
 .primary-option-btn:hover {
-  background: #d6d6d6;
-  transform: scale(1.02);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-color: #667eea;
+  transform: translateX(5px);
 }
 
-/* Selected State for Primary Options */
 .primary-option-btn.selected {
-  background: #007bff; /* Blue */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  font-weight: bold;
-  border: 1px solid #0056b3;
-  transform: none;
+  font-weight: 600;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
 }
 
 /* Continue Button */
 .continue-btn {
-  background: #28a745;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
   color: white;
-  padding: 12px 20px;
+  padding: 16px 40px;
   border: none;
-  border-radius: 8px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  margin-top: 15px;
-  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin: 30px auto 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.35);
+  min-width: 200px;
 }
 
 .continue-btn:hover {
-  background: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.45);
 }
 
-/* Responsive Adjustments */
+/* Question Section */
+.question-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.question-section h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0 0 30px 0;
+  font-weight: 700;
+}
+
+/* Question Box */
+.question-box {
+  margin-bottom: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 16px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.question-box:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+}
+
+.question-box h4 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 600;
+}
+
+/* Options Styling */
+.option-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: white;
+  color: #2c3e50;
+  border: 2px solid #dee2e6;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.option-btn:hover {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-color: #667eea;
+  transform: translateX(5px);
+}
+
+.option-btn.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Result Section */
+.result-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.result-section h3 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.result-section p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.therapy-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.35);
+  display: inline-block;
+}
+
+.therapy-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.45);
+}
+
+/* Mood History */
+.mood-history {
+  list-style-type: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.mood-item {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 16px;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.mood-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.mood-text {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+/* Responsive Adjustments for Mood Tracker */
 @media (max-width: 768px) {
+  .mood-container h2 {
+    font-size: 2rem;
+  }
+
   .mood-selection {
-    flex-direction: column;
-    align-items: center;
+    gap: 12px;
   }
 
   .mood-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 2.2rem;
+  }
+
+  .mood-container textarea {
+    max-width: 100%;
+    height: 70px;
+  }
+
+  .primary-section,
+  .question-section,
+  .result-section {
+    padding: 25px 20px;
+    margin: 30px 15px;
+  }
+
+  .primary-section h3,
+  .question-section h3 {
     font-size: 1.5rem;
   }
 
-  textarea {
-    width: 90%;
+  .primary-question-box,
+  .question-box {
+    padding: 20px;
   }
 
-  .question-section {
-    padding: 15px;
+  .primary-question-box h4,
+  .question-box h4 {
+    font-size: 1.1rem;
   }
 
-  .option-btn {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
+  .option-btn,
   .primary-option-btn {
-    font-size: 0.9rem;
-    padding: 10px;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+  }
+
+  .submit-btn,
+  .continue-btn,
+  .therapy-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .mood-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
+  .primary-section h3,
+  .question-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .result-section h3 {
+    font-size: 1.6rem;
   }
 }
 
@@ -5114,126 +5373,717 @@ button:disabled {
 }
 
 
-/* Therapist List Container */
-.therapist-list-container {
+/* ========================================
+   Modern Therapy Booking Page Styles
+   ======================================== */
+
+.therapy-booking-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fdff 0%, #e3f2fd 25%, #fff3e0 50%, #f1f8e9 75%, #fce4ec 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.therapy-booking-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(78, 205, 196, 0.08) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.06) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.08) 2px, transparent 2px);
+  background-size: 100px 100px, 80px 80px, 120px 120px;
+  pointer-events: none;
+}
+
+/* Therapy Hero Section */
+.therapy-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60px 20px;
   text-align: center;
-  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.therapist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+.therapy-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  pointer-events: none;
 }
 
-.therapist-card {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+.therapy-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.therapist-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.therapy-brand-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: therapyIconFloat 3s ease-in-out infinite;
 }
 
-.therapist-card h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
+@keyframes therapyIconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.therapist-card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.therapist-card button {
-  margin-top: 10px;
-  padding: 8px 12px;
-  border: none;
-  background: #007bff;
+.therapy-hero-title {
+  font-size: 2.8rem;
   color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.therapist-card button:hover {
-  background: #0056b3;
-}
-
-.therapy-booking-container {
-  text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.therapy-booking-container h2 {
-  color: #007BFF;
-}
-
-label {
+.therapy-hero-subtitle {
   font-size: 1.2rem;
-  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.6;
 }
 
-input[type="date"] {
+/* Main Content */
+.therapy-main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Modern Therapist Section */
+.modern-therapist-section {
+  margin-bottom: 50px;
+}
+
+.therapist-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.therapist-section-header h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.therapist-section-header p {
   font-size: 1.1rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Therapist Grid */
+.therapist-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Modern Therapist Card */
+.therapist-card-modern {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+}
+
+.therapist-card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+}
+
+.therapist-card-modern.selected {
+  border-color: #667eea;
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+}
+
+.therapist-card-header {
+  position: relative;
+  padding: 25px 25px 15px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.therapist-image-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 15px;
+}
+
+.therapist-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  border: 4px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: white;
   padding: 5px;
 }
 
-.time-slot-container {
+.selected-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.therapist-badge {
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.therapist-card-body {
+  padding: 20px 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.therapist-name {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.therapist-specialization {
+  font-size: 1rem;
+  color: #667eea;
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.therapist-meta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  margin: 8px 0;
+}
+
+.therapist-rating-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.therapist-rating-display .stars {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.therapist-rating-display .rating-number {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.therapist-availability {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.availability-icon {
+  font-size: 1rem;
+}
+
+.therapist-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.therapist-card-footer {
+  padding: 0 25px 25px;
+}
+
+.book-therapist-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.time-slot-btn {
-  background: black;
-  border: 1px solid #ccc;
-  padding: 10px 15px;
+.book-therapist-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+.book-therapist-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.therapist-card-modern.selected .book-therapist-btn {
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+/* Booking Form Section */
+.booking-form-section {
+  margin-top: 50px;
+  animation: bookingFormSlideIn 0.6s ease-out;
+}
+
+@keyframes bookingFormSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected Therapist Card */
+.selected-therapist-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 2px solid #e9ecef;
+}
+
+.selected-therapist-avatar {
+  flex-shrink: 0;
+}
+
+.selected-therapist-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  border: 3px solid #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  background: white;
+  padding: 4px;
+}
+
+.selected-therapist-info {
+  flex: 1;
+}
+
+.selected-therapist-info h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0 0 5px 0;
+  font-weight: 700;
+}
+
+.selected-therapist-info p {
+  color: #667eea;
+  font-size: 0.95rem;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.therapist-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.therapist-rating .stars {
+  color: #ffd700;
   font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  border-radius: 5px;
 }
 
-.time-slot-btn:hover {
-  background: #d9edf7;
+.therapist-rating .rating-value {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.time-slot-btn.selected {
-  background: #007BFF;
-  color: black;
+/* Booking Form */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.confirm-btn {
-  background: #28a745;
-  color: white;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 5px;
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.confirm-btn:hover {
-  background: #218838;
-}
-
-.booking-message {
-  margin-top: 15px;
+.modern-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.1rem;
-  color: #ff4500;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.label-icon {
+  font-size: 1.3rem;
+}
+
+.modern-date-input {
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  outline: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-family: inherit;
+}
+
+.modern-date-input:focus {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+/* Time Slots Section */
+.time-slots-section {
+  animation: timeSlotsAppear 0.4s ease-out;
+}
+
+@keyframes timeSlotsAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.modern-time-slot {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modern-time-slot:hover {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.modern-time-slot.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.time-icon {
+  font-size: 1.2rem;
+}
+
+/* Booking Summary */
+.booking-summary {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fdff 0%, #fff3e0 100%);
+  border-radius: 16px;
+  border: 2px solid #e3f2fd;
+  animation: summaryAppear 0.4s ease-out;
+}
+
+@keyframes summaryAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.booking-summary h4 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.summary-value {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* Confirm Button */
+.modern-confirm-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.35);
+  margin-top: 10px;
+}
+
+.modern-confirm-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+.modern-confirm-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.45);
+}
+
+.modern-confirm-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Booking Notification */
+.booking-notification {
+  padding: 16px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: notificationSlide 0.4s ease-out;
+}
+
+@keyframes notificationSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.booking-notification.success {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 2px solid #28a745;
+  color: #155724;
+}
+
+.booking-notification.error {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 2px solid #dc3545;
+  color: #721c24;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.booking-notification p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .therapy-hero {
+    padding: 40px 20px;
+  }
+
+  .therapy-hero-title {
+    font-size: 2rem;
+  }
+
+  .therapy-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .therapy-brand-icon {
+    font-size: 3rem;
+  }
+
+  .therapist-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .booking-form-container {
+    padding: 20px;
+  }
+
+  .selected-therapist-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .summary-value {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .therapy-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .therapist-section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modern-confirm-btn {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
 }
 
 
