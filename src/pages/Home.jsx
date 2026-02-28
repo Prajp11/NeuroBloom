@@ -139,6 +139,13 @@ const Home = () => {
 
       {/* Call-to-Action Section */}
       <div className="cta-section">
+        <div className="cta-floating-circles">
+          <div className="cta-circle cta-circle-1"></div>
+          <div className="cta-circle cta-circle-2"></div>
+          <div className="cta-circle cta-circle-3"></div>
+          <div className="cta-circle cta-circle-4"></div>
+          <div className="cta-circle cta-circle-5"></div>
+        </div>
         <div className="cta-content">
           <h2 className="cta-title">Ready to Start Your Wellness Journey?</h2>
           <p className="cta-description">Join thousands of users who have transformed their mental health with our platform</p>
