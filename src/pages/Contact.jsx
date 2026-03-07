@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCheckCircle, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaUser, FaPaperPlane, FaHeart } from "react-icons/fa";
+import { FaCheckCircle, FaEnvelope, FaPhone, FaUser, FaPaperPlane, FaHeart } from "react-icons/fa";
 import "../App.css"; // Ensure styles are applied
 
 const Contact = () => {
@@ -66,7 +66,7 @@ const Contact = () => {
                   </div>
                   <div className="info-content">
                     <h3>Email Us</h3>
-                    <p>support@neurobloom.com</p>
+                    <p>support@mentalwellness.com</p>
                     <span className="info-detail">We respond within 24 hours</span>
                   </div>
                 </div>
@@ -77,30 +77,8 @@ const Contact = () => {
                   </div>
                   <div className="info-content">
                     <h3>Call Us</h3>
-                    <p>+1 (555) 123-4567</p>
-                    <span className="info-detail">Mon-Fri, 9AM-6PM EST</span>
-                  </div>
-                </div>
-                
-                <div className="info-card">
-                  <div className="info-icon">
-                    <FaMapMarkerAlt />
-                  </div>
-                  <div className="info-content">
-                    <h3>Visit Us</h3>
-                    <p>123 Wellness Street</p>
-                    <span className="info-detail">New York, NY 10001</span>
-                  </div>
-                </div>
-                
-                <div className="info-card">
-                  <div className="info-icon">
-                    <FaClock />
-                  </div>
-                  <div className="info-content">
-                    <h3>Support Hours</h3>
-                    <p>24/7 AI Support</p>
-                    <span className="info-detail">Live chat always available</span>
+                    <p>+91 7378570635</p>
+                    <span className="info-detail">Mon-Fri, 9AM-6PM IST</span>
                   </div>
                 </div>
               </div>

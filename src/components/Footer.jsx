@@ -18,7 +18,7 @@ const Footer = () => {
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
             </div>
-            <h4>Mental Health Companion</h4>
+            <h4>NeuroBloom</h4>
           </div>
           <p className="brand-description">
             Empowering minds, healing hearts. Your trusted partner in mental wellness with cutting-edge AI technology and compassionate care.
@@ -97,7 +97,7 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p>&copy; {currentYear} Mental Health Companion. All rights reserved.</p>
+          <p>&copy; {currentYear} NeuroBloom. All rights reserved.</p>
           <div className="footer-legal">
             <Link to="/privacy" className="legal-link">Privacy Policy</Link>
             <span className="separator">•</span>

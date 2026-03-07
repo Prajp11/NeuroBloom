@@ -117,8 +117,10 @@ const Home = () => {
         <div className="card-container">
           {features.map((feature, index) => (
             <div key={index} className="feature-card modern-card" data-index={index}>
-              <div className="card-header" style={{ backgroundColor: feature.color }}>
-                <img src={feature.image} alt={feature.title} className="feature-image" />
+              <div className="card-header" data-color={feature.color}>
+                <div className="card-icon-wrapper">
+                  <img src={feature.image} alt={feature.title} className="feature-image" />
+                </div>
               </div>
               <div className="card-body">
                 <h3 className="feature-title">{feature.title}</h3>
@@ -128,7 +130,7 @@ const Home = () => {
                     className="learn-more clickable"
                     onClick={() => setFeatureModal({ open: true, feature })}
                   >
-                    Learn More →
+                    Learn More
                   </button>
                 </div>
               </div>
