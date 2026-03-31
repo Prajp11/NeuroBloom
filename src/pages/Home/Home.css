@@ -1,0 +1,12 @@
+/* Home shell — section modules import their own styles from ./components */
+.home-page {
+  width: 100%;
+  min-height: 100%;
+  --home-text: #0f172a;
+  --home-muted: #64748b;
+}
+
+:root[data-theme="dark"] .home-page {
+  --home-text: #f8fafc;
+  --home-muted: #94a3b8;
+}
