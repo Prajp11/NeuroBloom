@@ -1,0 +1,67 @@
+.mh-toast {
+  position: fixed;
+  bottom: calc(var(--space-3, 24px) + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 20px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  animation: mh-toast-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  max-width: min(420px, calc(100vw - 32px));
+}
+
+:root[data-theme="dark"] .mh-toast {
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.mh-toast__text {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.mh-toast__close {
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.mh-toast__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.mh-toast__close:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+@keyframes mh-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
