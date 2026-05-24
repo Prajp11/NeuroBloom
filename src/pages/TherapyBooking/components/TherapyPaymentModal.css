@@ -1,0 +1,320 @@
+.therapy-pay-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.therapy-pay-modal {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 24px;
+  padding: 24px 24px 22px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.3);
+  background:
+    radial-gradient(ellipse at top right, rgba(99, 102, 241, 0.16), transparent 52%),
+    radial-gradient(ellipse at bottom left, rgba(45, 212, 191, 0.1), transparent 52%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.94), rgba(30, 41, 59, 0.94));
+}
+
+.therapy-pay-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.therapy-pay-brand {
+  margin: 0 0 4px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #a5b4fc;
+}
+
+.therapy-pay-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+}
+
+.therapy-pay-close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #cbd5e1;
+  padding: 0 4px;
+  border-radius: 8px;
+}
+
+.therapy-pay-close:hover {
+  color: #fff;
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.therapy-pay-amount {
+  margin: 0 0 8px;
+  font-size: 0.9375rem;
+  color: #cbd5e1;
+}
+
+.therapy-pay-amount strong {
+  color: #ffffff;
+  font-size: 1.35rem;
+  margin-left: 8px;
+}
+
+.therapy-pay-hint {
+  margin: 0 0 10px;
+  font-size: 0.8125rem;
+  color: #94a3b8;
+  line-height: 1.45;
+}
+
+.therapy-pay-trust-row {
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.therapy-pay-trust-row code {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+}
+
+.therapy-pay-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.therapy-pay-tab {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(30, 41, 59, 0.55);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+}
+
+:root[data-theme="dark"] .therapy-pay-tab {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.therapy-pay-tab.active {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.38), rgba(139, 92, 246, 0.22));
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.14);
+  color: #fff;
+}
+
+.therapy-pay-tab:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.therapy-pay-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.therapy-pay-card-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 12px;
+}
+
+.therapy-pay-card-preview {
+  border-radius: 16px;
+  padding: 14px;
+  min-height: 150px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background:
+    radial-gradient(120% 120% at 85% -10%, rgba(129, 140, 248, 0.45), transparent 55%),
+    radial-gradient(140% 140% at -10% 100%, rgba(56, 189, 248, 0.22), transparent 50%),
+    linear-gradient(145deg, #1e293b, #0f172a);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.therapy-pay-card-chip {
+  width: 34px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  background: linear-gradient(145deg, #f8fafc, #cbd5e1);
+  margin-bottom: 14px;
+}
+
+.therapy-pay-card-brand {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: #dbeafe;
+  font-weight: 700;
+}
+
+.therapy-pay-card-number {
+  margin: 0 0 auto;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.therapy-pay-card-bottom {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.therapy-pay-card-name {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5e1;
+}
+
+.therapy-pay-card-exp {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  padding: 4px 6px;
+  border-radius: 999px;
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.therapy-pay-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.therapy-pay-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.therapy-pay-input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  font-size: 0.9375rem;
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  font-family: var(--font-sans);
+}
+
+:root[data-theme="dark"] .therapy-pay-input {
+  background: rgba(15, 23, 42, 0.45);
+  color-scheme: dark;
+}
+
+.therapy-pay-input:focus {
+  outline: none;
+  border-color: rgba(129, 140, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.18);
+}
+
+.therapy-pay-selected-method {
+  margin: -2px 0 10px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.therapy-pay-error {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #b91c1c;
+  font-size: 0.8125rem;
+  margin-bottom: 12px;
+}
+
+:root[data-theme="dark"] .therapy-pay-error {
+  color: #fca5a5;
+}
+
+.therapy-pay-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.therapy-pay-secondary,
+.therapy-pay-primary {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  border: none;
+}
+
+.therapy-pay-secondary {
+  background: rgba(30, 41, 59, 0.55);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.therapy-pay-primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(79, 70, 229, 0.36);
+}
+
+.therapy-pay-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.32);
+}
+
+.therapy-pay-primary:disabled,
+.therapy-pay-secondary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .therapy-pay-card-layout {
+    grid-template-columns: 1fr;
+  }
+}
